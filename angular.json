@@ -44,6 +44,7 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
+              "src/assets/pics",
               "src/assets",
               {
                 "glob": "**/*",
