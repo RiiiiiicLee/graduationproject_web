@@ -23,15 +23,11 @@
                             <ul nz-menu nzTheme="dark" nzMode="horizontal">
                                 <li nz-submenu>
                                     <div title>
-                                        <span>登录</span>
+                                        <span (click)="gotoLogin()">登录</span>
                                         <i nz-icon type="down" nzTheme="outline"></i>
                                     </div>
                                     <ul>
-                                        <li nz-menu-item>
-                                            <i nz-icon type="mobile" nzTheme="outline"></i>
-                                            手机登录
-                                        </li>
-                                        <li nz-menu-item>
+                                        <li nz-menu-item (click)="gotoSignup()">
                                             <i nz-icon type="user-add" nzTheme="outline"></i>
                                             注册
                                         </li>
