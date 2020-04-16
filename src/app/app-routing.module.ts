@@ -1,18 +1,17 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { LayoutComponent } from './pages/layout/layout.component';
+import { componentFactoryName } from '@angular/compiler';
 
 
 const routes: Routes = [
   {
-    path:'home' , component:HomeComponent
-  },
-  {
     path:'',
-    redirectTo:'/home',
-    pathMatch:'full'
+    redirectTo: '/home',
+    pathMatch: 'full'
   },
   {
     path:'login',
@@ -21,7 +20,21 @@ const routes: Routes = [
   {
     path:'signup',
     component:SignupComponent
-  }
+  },
+  {
+    path:'layout',
+    component:LayoutComponent
+  },
+  {
+    path:'home',
+    component:LayoutComponent,
+    children:[
+      {
+        path:'',
+        component:HomeComponent
+      }
+    ]
+  },
 ];
 
 @NgModule({
