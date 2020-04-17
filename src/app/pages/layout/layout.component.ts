@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 
 @Component({
@@ -12,11 +13,11 @@ export class LayoutComponent implements OnInit {
   username: string =window.localStorage.getItem('user_name')
 
   constructor(
-    private Router: Router
+    private Router: Router,
+    private message: NzMessageService
   ) { }
 
   ngOnInit() {
-    console.log(this.username);
   }
 
   gotoLogin(){

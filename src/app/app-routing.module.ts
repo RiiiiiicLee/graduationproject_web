@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { UserinfoComponent } from './pages/userinfo/userinfo.component';
+import { DriverinfoComponent } from './pages/driverinfo/driverinfo.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,11 @@ const routes: Routes = [
       {
         path:'userinfo',
         component: UserinfoComponent
-      } 
+      },
+      {
+        path:'driverinfo',
+        component: DriverinfoComponent
+      }
     ]
   },
 ];

@@ -1,1 +1,52 @@
-<p>userinfo works!</p>
+<div class="userinfo">
+    <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="个人中心" nzSubtitle="查看和修改个人信息">
+    </nz-page-header>
+    <div class="modal-wrap">
+        <form nz-form class="userinfo-form" (submit)=submitForm()>
+            <nz-form-item>
+                <nz-form-label nzFor="username">Username</nz-form-label>
+                <nz-form-control nzHasFeedBack nzErrorTip="请输入正确的用户名">
+                    <nz-input-group nzPrefixIcon="user">
+                        <input nz-input name ="username" [(ngModel)]="formData.username" readonly="readonly"/>
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="tel">Tel</nz-form-label>
+                <nz-form-control nzHasFeedBack nzErrorTip="请输入正确的电话">
+                    <nz-input-group nzPrefixIcon="phone">
+                        <input nz-input name ="tel" [(ngModel)]="formData.tel" placeholder="tel" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="email">E-mail</nz-form-label>
+                <nz-form-control nzHasFeedBack nzErrorTip="请输入正确的邮箱">
+                    <nz-input-group nzPrefixIcon="mail">
+                        <input nz-input type="email" name ="email" [(ngModel)]="formData.email" placeholder="email" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="address">address</nz-form-label>
+                <nz-form-control nzHasFeedBack nzErrorTip="请输入正确的地址">
+                    <nz-input-group nzPrefixIcon="home">
+                        <input nz-input type="text" placeholder="address" name ="address" [(ngModel)]="formData.address" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="birthday">birthday</nz-form-label>
+                <nz-form-control nzHasFeedBack nzErrorTip="请输入正确的生日">
+                        <nz-date-picker placeholder="日期" name="birthday" [(ngModel)]="formData.birthday"></nz-date-picker>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <button nz-button class="submit-button" [nzType]="'primary'">submit</button>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </div>
+    
+</div>

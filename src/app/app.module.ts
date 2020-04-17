@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NZ_I18N, zh_CN, NzFormModule } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +14,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { UserinfoComponent } from './pages/userinfo/userinfo.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DriverinfoComponent } from './pages/driverinfo/driverinfo.component';
 
 registerLocaleData(zh);
 
@@ -24,7 +26,8 @@ registerLocaleData(zh);
     LoginComponent,
     SignupComponent,
     LayoutComponent,
-    UserinfoComponent
+    UserinfoComponent,
+    DriverinfoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ registerLocaleData(zh);
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    NzFormModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
