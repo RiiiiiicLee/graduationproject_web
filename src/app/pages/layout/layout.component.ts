@@ -32,6 +32,10 @@ export class LayoutComponent implements OnInit {
     this.Router.navigate(['/home/userinfo']);
   }
 
+  gotoDriver(){
+    this.Router.navigate(['/home/driverinfo']);
+  }
+
   nologin():boolean{
     if(this.username ==null){
       return true;
