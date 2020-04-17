@@ -4,7 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LayoutComponent } from './pages/layout/layout.component';
-import { componentFactoryName } from '@angular/compiler';
+import { UserinfoComponent } from './pages/userinfo/userinfo.component';
 
 
 const routes: Routes = [
@@ -32,7 +32,11 @@ const routes: Routes = [
       {
         path:'',
         component:HomeComponent
-      }
+      },
+      {
+        path:'userinfo',
+        component: UserinfoComponent
+      } 
     ]
   },
 ];

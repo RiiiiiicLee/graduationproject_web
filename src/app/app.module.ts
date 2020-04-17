@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LayoutComponent } from './pages/layout/layout.component';
+import { UserinfoComponent } from './pages/userinfo/userinfo.component';
 
 registerLocaleData(zh);
 
@@ -22,7 +23,8 @@ registerLocaleData(zh);
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    LayoutComponent
+    LayoutComponent,
+    UserinfoComponent
   ],
   imports: [
     BrowserModule,

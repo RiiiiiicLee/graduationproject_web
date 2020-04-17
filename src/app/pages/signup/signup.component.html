@@ -2,9 +2,9 @@
     <div class="login-wrapper">
         <div class="header">Sign up</div>
         <div class="form-wrapper">
-            <input type="text" name="username" placeholder="username" class="input-item">
-            <input type="password" name="password" placeholder="password" class="input-item">
-            <div class="btn" (click)="login()">
+            <input type="text" name="username" placeholder="username" class="input-item" [(ngModel)]="signupForm.username" #username="ngModel">
+            <input type="password" name="password" placeholder="password" class="input-item" [(ngModel)]="signupForm.password" #password="ngModel">
+            <div class="btn" (click)="signup()">
                     <i nz-icon nzType="login" nzTheme="outline"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign up &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>

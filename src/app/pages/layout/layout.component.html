@@ -19,10 +19,11 @@
                         </ng-template>
                     </div>
                     <div class="member">
-                        <div class="no-login">
+                        <div class="no-login" *ngIf="nologin()">
                             <ul nz-menu nzTheme="dark" nzMode="horizontal">
                                 <li nz-submenu>
                                     <div title>
+                                        <i nz-icon nzType="login" nzTheme="outline"></i>
                                         <span (click)="gotoLogin()">登录</span>
                                         <i nz-icon type="down" nzTheme="outline"></i>
                                     </div>
@@ -30,6 +31,23 @@
                                         <li nz-menu-item (click)="gotoSignup()">
                                             <i nz-icon type="user-add" nzTheme="outline"></i>
                                             注册
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="do-login" *ngIf="!nologin()">
+                            <ul nz-menu nzTheme="dark" nzMode="horizontal">
+                                <li nz-submenu>
+                                    <div title>
+                                        <i nz-icon type="user" nzTheme="outline"></i>
+                                        <span (click)="gotoUserInfo()">{{username}}的个人中心</span>
+                                        <i nz-icon type="down" nzTheme="outline"></i>
+                                    </div>
+                                    <ul>
+                                        <li nz-menu-item (click)="logout()">
+                                            <i nz-icon nzType="logout" nzTheme="outline"></i>
+                                            登出
                                         </li>
                                     </ul>
                                 </li>
