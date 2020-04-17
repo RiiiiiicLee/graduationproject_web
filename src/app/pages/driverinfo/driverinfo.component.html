@@ -15,12 +15,14 @@
                 <nz-card nzHoverable nzTitle="Lewis HAMILTON" (click)="showHAM()">
                     <img src="https://www.formula1.com/content/fom-website/en/drivers/lewis-hamilton/_jcr_content/image.img.1920.medium.jpg/1584013371803.jpg" alt="lewis-hamilton" height="10%" width="10%">
                     <p>Team:Mercedes</p>
+                    <p>World Championships:6</p>
                     <p>Country:United Kingdom</p> 
                     <p>Date of birth:07/01/1985</p>
                 </nz-card>
               </div>
               <div nz-col [nzSpan]="6">
                 <nz-card nzHoverable nzTitle="Lando NORRIS" (click)="showNORRIS()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/lando-norris/_jcr_content/image.img.1920.medium.jpg/1584013897913.jpg" alt="lando-norris" height="10%" width="10%">
                     <p>Team:McLaren</p>
                     <p>Country:United Kingdom</p> 
                     <p>Date of birth:13/11/1999</p>
@@ -28,6 +30,7 @@
               </div>
               <div nz-col [nzSpan]="6">
                 <nz-card nzHoverable nzTitle="George RUSSEL" (click)="showRUSSEL()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/george-russell/_jcr_content/image.img.1920.medium.jpg/1584013858126.jpg" alt="george-russell" height="10%" width="10%">
                     <p>Team:Williams</p>
                     <p>Country:United Kingdom</p> 
                     <p>Date of birth:15/02/1998</p>
@@ -36,98 +39,138 @@
             </div>
             <div nz-row [nzGutter]="6">
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Valtteri BOTTAS">
-                    <p>Learning his craft on Finnish roads of ice and snow, he was born to be a Grand Prix racer.
-
-                        Bottas explains that if you can drive on the frozen roads of his homeland then you can drive anywhere. Then there’s the Finnish mentality –reserved, diligent and calm the fast lane of F1 doesn’t faze him.</p>
+                  <nz-card nzHoverable nzTitle="Valtteri BOTTAS" (click)="showBOTTAS()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/valtteri-bottas/_jcr_content/image.img.1920.medium.jpg/1584013243241.jpg" alt="valtteri-bottas" height="10%" width="10%">
+                    <p>Team:Mercedes</p>
+                    <p>Country:Finland</p> 
+                    <p>Date of birth:28/08/1989</p>
                   </nz-card>
                 </div>
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Danill KVYAT">
-                    <p>He’s the comeback kid with a capital K. 
-
-                        Proving even ‘torpedoes’ can make U-turns, Daniil Kvyat made a surprise F1 return for a third spell with Toro Rosso in 2019. His intrinsic speed and ability to adapt to circuit conditions make him a valuable asset - and he’s a proven podium contender. </p>
+                  <nz-card nzHoverable nzTitle="Danill KVYAT" (click)="showKVYAT()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/daniil-kvyat/_jcr_content/image.img.1920.medium.jpg/1584012653479.jpg" alt="daniil-kvyat" height="10%" width="10%">
+                    <p>Team:AlphaTauri</p>
+                    <p>Country:Russian Federation</p> 
+                    <p>Date of birth:26/04/1994</p>
                   </nz-card>
                 </div>
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Esteban OCON">
-                    <p>If there’s one word that dominates Esteban Ocon’s career, it’s ‘sacrifice’.
-
-                        Back when he was just a promising karter, Ocon’s parents sold their house, put their jobs on hold, and began a life on the road, living in a caravan and travelling from circuit to circuit to support their son’s burgeoning career.</p>
+                  <nz-card nzHoverable nzTitle="Esteban OCON" (click)="showOCON()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/esteban-ocon/_jcr_content/image.img.1920.medium.jpg/1584013409157.jpg" alt="esteban-ocon" height="10%" width="10%">
+                    <p>Team:Renault</p>
+                    <p>Country:France</p> 
+                    <p>Date of birth:17/09/1996</p>
                   </nz-card>
                 </div>
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Carlos SAINZ">
-                    <p>Biography
-                        He’s the matador from Madrid racing royalty. 
-                        
-                        Entering F1’s Bull Ring paired alongside Max Verstappen at Toro Rosso in 2015, Sainz quickly showed his fighting spirit. A tenacious racer, Sainz puts the car on the edge as he hustles his way through the pack. No wonder he’s earned the nickname Chilli.</p>
-                  </nz-card>
-                </div>
-              </div>
-              <div nz-row [nzGutter]="6">
-                <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Pierre Gasly">
-                    <p>Card content</p>
-                  </nz-card>
-                </div>
-                <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Nicholas LATIFI">
-                    <p>Card content</p>
-                  </nz-card>
-                </div>
-                <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Sergio PEREZ">
-                    <p>Card content</p>
-                  </nz-card>
-                </div>
-                <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Lance STROLL">
-                    <p>Card content</p>
+                  <nz-card nzHoverable nzTitle="Carlos SAINZ" (click)="showSAINZ()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/carlos-sainz/_jcr_content/image.img.1920.medium.jpg/1584012341233.jpg" alt="carlos-sainz" height="10%" width="10%">
+                    <p>Team:McLaren</p>
+                    <p>Country:Spain</p> 
+                    <p>Date of birth:01/09/1994</p>
                   </nz-card>
                 </div>
               </div>
               <div nz-row [nzGutter]="6">
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Antonio GIOVINAZZI">
-                    <p>Card content</p>
+                  <nz-card nzHoverable nzTitle="Pierre Gasly" (click)="showGasly()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/pierre-gasly/_jcr_content/image.img.1920.medium.jpg/1584013791271.jpg" alt="pierre-gasly" height="10%" width="10%">
+                    <p>Team:AlphaTauri</p>
+                    <p>Country:France</p> 
+                    <p>Date of birth:07/02/1996</p>
                   </nz-card>
                 </div>
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Chaerles LECLERC">
-                    <p>Card content</p>
+                  <nz-card nzHoverable nzTitle="Nicholas LATIFI" (click)="showLATIFI()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/nicholas-latifi/_jcr_content/image.img.1920.medium.jpg/1584013989292.jpg" alt="nicholas-latifi" height="10%" width="10%">
+                    <p>Team:Williams</p>
+                    <p>Country:Canada</p> 
+                    <p>Date of birth:29/06/1995</p>
                   </nz-card>
                 </div>
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Kimi RAIKKIONEN">
-                    <p>Card content</p>
+                  <nz-card nzHoverable nzTitle="Sergio PEREZ" (click)="showPEREZ()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/sergio-perez/_jcr_content/image.img.1920.medium.jpg/1584013058541.jpg" alt="sergio-perez" height="10%" width="10%">
+                    <p>Team:Racing Point</p>
+                    <p>Country:Mexico</p> 
+                    <p>Date of birth:26/01/1990</p>
                   </nz-card>
                 </div>
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Max VERSTAPPEN">
-                    <p>Card content</p>
+                  <nz-card nzHoverable nzTitle="Lance STROLL" (click)="showSTROLL()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/lance-stroll/_jcr_content/image.img.1920.medium.jpg/1584013460046.jpg" alt="lance-stroll" height="10%" width="10%">
+                    <p>Team:Racing Point</p>
+                    <p>Country:Canada</p> 
+                    <p>Date of birth:29/10/1998</p>
                   </nz-card>
                 </div>
               </div>
               <div nz-row [nzGutter]="6">
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Romain GROSJEAN">
-                    <p>Card content</p>
+                  <nz-card nzHoverable nzTitle="Antonio GIOVINAZZI" (click)="showGIOVINAZZI()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/antonio-giovinazzi/_jcr_content/image.img.1920.medium.jpg/1584013739535.jpg" alt="antonio-giovinazzi" height="10%" width="10%">
+                    <p>Team:Alfa Romeo</p>
+                    <p>Country:Italy</p> 
+                    <p>Date of birth:14/12/1993</p>
                   </nz-card>
                 </div>
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Kevin Magnussen">
-                    <p>Card content</p>
+                  <nz-card nzHoverable nzTitle="Charles LECLERC" (click)="showLECLERC()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/charles-leclerc/_jcr_content/image.img.1920.medium.jpg/1584013824254.jpg" alt="charles-leclerc" height="10%" width="10%">
+                    <p>Team:Ferrari</p>
+                    <p>Country:Monaco</p> 
+                    <p>Date of birth:16/10/1997</p>
                   </nz-card>
                 </div>
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Daniel RICCIARDO">
-                    <p>Card content</p>
+                  <nz-card nzHoverable nzTitle="Kimi Räikkönen" (click)="showRAIKKIONEN()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/kimi-raikkonen/_jcr_content/image.img.1920.medium.jpg/1584012751723.jpg" alt="kimi-raikkonen" height="10%" width="10%">
+                    <p>Team:Alfa Romeo</p>
+                    <p>Country:Finland</p> 
+                    <p>Date of birth:17/10/1979</p>
                   </nz-card>
                 </div>
                 <div nz-col [nzSpan]="6">
-                  <nz-card nzHoverable nzTitle="Sebastian VETTEL">
-                    <p>Card content</p>
+                  <nz-card nzHoverable nzTitle="Max VERSTAPPEN" (click)="showVERSTAPPEN()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/max-verstappen/_jcr_content/image.img.1920.medium.jpg/1584012927837.jpg" alt="max-verstappen" height="10%" width="10%">
+                    <p>Team:Red Bull Racing</p>
+                    <p>Country:Netherlands</p> 
+                    <p>Date of birth:30/09/1997</p>
+                  </nz-card>
+                </div>
+              </div>
+              <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="6">
+                  <nz-card nzHoverable nzTitle="Romain GROSJEAN" (click)="showGROSJEAN()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/romain-grosjean/_jcr_content/image.img.1920.medium.jpg/1584012955838.jpg" alt="romain-grosjean" height="10%" width="10%">
+                    <p>Team:Haas</p>
+                    <p>Country:France</p> 
+                    <p>Date of birth:17/04/1986</p>
+                  </nz-card>
+                </div>
+                <div nz-col [nzSpan]="6">
+                  <nz-card nzHoverable nzTitle="Kevin Magnussen" (click)="showMagnussen()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/kevin-magnussen/_jcr_content/image.img.1920.medium.jpg/1584012829634.jpg" alt="kevin-magnussen" height="10%" width="10%">
+                    <p>Team:Haas</p>
+                    <p>Country:Denmark</p> 
+                    <p>Date of birth:05/10/1992</p>
+                  </nz-card>
+                </div>
+                <div nz-col [nzSpan]="6">
+                  <nz-card nzHoverable nzTitle="Daniel RICCIARDO" (click)="showRICCIARDO()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/daniel-ricciardo/_jcr_content/image.img.1920.medium.jpg/1584012376585.jpg" alt="daniel-ricciardo" height="10%" width="10%">
+                    <p>Team:Renault</p>
+                    <p>Country:Australia</p> 
+                    <p>Date of birth:01/07/1989</p>
+                  </nz-card>
+                </div>
+                <div nz-col [nzSpan]="6">
+                  <nz-card nzHoverable nzTitle="Sebastian VETTEL" (click)="showVETTEL()">
+                    <img src="https://www.formula1.com/content/fom-website/en/drivers/sebastian-vettel/_jcr_content/image.img.1920.medium.jpg/1584013014200.jpg" alt="sebastian-vettel" height="10%" width="10%">
+                    <p>Team:Ferrari</p>
+                    <p>World Championships:4</p>
+                    <p>Country:Germany</p> 
+                    <p>Date of birth:03/07/1987</p>
                   </nz-card>
                 </div>
               </div>
