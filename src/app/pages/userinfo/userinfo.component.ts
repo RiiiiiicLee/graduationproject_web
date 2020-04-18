@@ -27,11 +27,16 @@ export class UserinfoComponent implements OnInit {
 
   ngOnInit() {
    this.formData.username=window.localStorage.getItem('user_name');
+   if(this.formData.username==null){
+     this.Router.navigate(['/home']);
+   }
    console.log(this.formData.username);
    this.formData.tel="111111";
    this.formData.email="add@address.com"
    this.formData.birthday="2020-2-1";
    this.formData.address="shanghai"
+
+   console.log(this.Router.url);
   }
 
   submitForm(): void {

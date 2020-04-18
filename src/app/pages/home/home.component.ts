@@ -14,4 +14,22 @@ export class HomeComponent implements OnInit {
   
   imgArr: Array<any> =['assets/pics/carousel01.jpg','assets/pics/carousel02.jpg']
 
+  panels = [
+    {
+      active: true,
+      disabled: false,
+      name: 'This is panel header 1',
+    },
+    {
+      active: false,
+      disabled: true,
+      name: 'This is panel header 2'
+    },
+    {
+      active: false,
+      disabled: false,
+      name: 'This is panel header 3'
+    }
+  ];
+
 }

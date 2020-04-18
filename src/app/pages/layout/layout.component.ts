@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { NzModalService } from 'ng-zorro-antd';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     private Router: Router,
-    private message: NzMessageService
+    private modal:NzModalService
   ) { }
 
   ngOnInit() {
@@ -36,6 +36,10 @@ export class LayoutComponent implements OnInit {
     this.Router.navigate(['/home/driverinfo']);
   }
 
+  gotoRace(){
+    this.Router.navigate(['/home/raceinfo']);
+  }
+
   nologin():boolean{
     if(this.username ==null){
       return true;
@@ -46,10 +50,19 @@ export class LayoutComponent implements OnInit {
   }
 
   logout(){
+    this.modal.confirm({
+      nzTitle: '<i>Do you Want to logout?</i>',
+      nzContent: '<b>please confirm</b>',
+      nzOnOk: () => this.doLogout()
+    });
+      
+    }
+  
+    doLogout(){
       window.localStorage.removeItem('auth_token');
       window.localStorage.removeItem('user_name');
-      window.alert('已退出登录');
+      // window.alert('已退出登录');
       location.reload();
-  }
+    }
 
 }

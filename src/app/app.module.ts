@@ -16,6 +16,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { UserinfoComponent } from './pages/userinfo/userinfo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DriverinfoComponent } from './pages/driverinfo/driverinfo.component';
+import { RaceinfoComponent } from './pages/raceinfo/raceinfo.component';
 
 registerLocaleData(zh);
 
@@ -27,7 +28,8 @@ registerLocaleData(zh);
     SignupComponent,
     LayoutComponent,
     UserinfoComponent,
-    DriverinfoComponent
+    DriverinfoComponent,
+    RaceinfoComponent
   ],
   imports: [
     BrowserModule,

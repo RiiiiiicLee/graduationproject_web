@@ -1,9 +1,17 @@
 <div class="home">
-    <div class="carousel wrap">
+    <div class="carouselwrap">
         <nz-carousel nzAutoPlay nzEffect="fade">
             <div class="carousel-item" nz-carousel-content *ngFor="let img of imgArr"> 
                 <img [src]="img" >
             </div>
         </nz-carousel>
+    </div>
+    <div class="notificationwrap">
+        <nz-page-header class="site-page-header" nzTitle="新闻"></nz-page-header>
+        <nz-collapse [nzBordered]="false" nzAccordion>
+            <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+              <p>{{ panel.name }} content</p>
+            </nz-collapse-panel>
+          </nz-collapse>
     </div>
 </div>

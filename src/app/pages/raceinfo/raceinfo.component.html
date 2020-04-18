@@ -1,0 +1,219 @@
+<div class="driverinfo">
+    <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Race" nzSubtitle="查看赛程介绍"></nz-page-header>
+    <div class="wrap">
+        <div style="background: rgb(235, 235, 236);padding:30px;">
+            <div nz-row [nzGutter]="6">
+              <div nz-col [nzSpan]="12">
+                <nz-card nzHoverable nzTitle="Australian Grand Prix" (click)="showAustralia()">
+                    <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Australia_Circuit.png.transform/9col/image.png" alt="Australia_Circuit" height="10%" width="10%">
+                    <p>Circuit:Melbourne Grand Prix Circuit</p>
+                    <p>Date:15 Mar</p> 
+                    <nz-alert nzType="warning" nzMessage="Currently Postponed" nzShowIcon></nz-alert>
+                </nz-card>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <nz-card nzHoverable nzTitle="Bahrain Grand Prix" (click)="showBahrain()">
+                    <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Bahrain_Circuit.png.transform/9col/image.png" alt="Bahrain_Circuit" height="10%" width="10%">
+                    <p>Circuit:Bahrain International Circuit</p>
+                    <p>Date:22 Mar</p>
+                    <nz-alert nzType="warning" nzMessage="Currently Postponed" nzShowIcon></nz-alert>
+                </nz-card>
+              </div>
+            </div>
+
+            <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="12">
+                  <nz-card nzHoverable nzTitle="Vietnam Grand Prix" (click)="showVietnam()">
+                      <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Vietnam_Circuit.png.transform/9col/image.png" alt="Vietnam_Circuit" height="10%" width="10%">
+                      <p>Circuit:Hanoi Circuit</p>
+                      <p>Date:05 April</p> 
+                      <nz-alert nzType="warning" nzMessage="Currently Postponed" nzShowIcon></nz-alert>
+                  </nz-card>
+                </div>
+                <div nz-col [nzSpan]="12">
+                  <nz-card nzHoverable nzTitle="Chinese Grand Prix" (click)="showChina()">
+                      <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/China_Circuit.png.transform/9col/image.png" alt="China_Circuit" height="10%" width="10%">
+                      <p>Circuit:Shanghai International Circuit</p>
+                      <p>Date:19 April</p>
+                      <nz-alert nzType="warning" nzMessage="Currently Postponed" nzShowIcon></nz-alert>
+                  </nz-card>
+                </div>
+              </div>
+
+            <div nz-row [nzGutter]="6">
+            <div nz-col [nzSpan]="12">
+                <nz-card nzHoverable nzTitle="Dutch Grand Prix" (click)="showNetherlands()">
+                    <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Netherlands_Circuit.png.transform/9col/image.png" alt="Netherlands_Circuit" height="10%" width="10%">
+                    <p>Circuit:Zandvoort Circuit</p>
+                    <p>Date:03 May</p> 
+                    <nz-alert nzType="warning" nzMessage="Currently Postponed" nzShowIcon></nz-alert>
+                </nz-card>
+            </div>
+            <div nz-col [nzSpan]="12">
+                <nz-card nzHoverable nzTitle="Spanish Grand Prix" (click)="showSpanish()">
+                    <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Spain_Circuit.png.transform/9col/image.png" alt="Spain_Circuit" height="10%" width="10%">
+                    <p>Circuit:Circuit de Barcelona-Catalunya</p>
+                    <p>Date:10 May</p>
+                    <nz-alert nzType="warning" nzMessage="Currently Postponed" nzShowIcon></nz-alert>
+                </nz-card>
+            </div>
+            </div>
+
+            <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Monaco Grand Prix" (click)="showMonaco()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Monoco_Circuit.png.transform/9col/image.png" alt="Monoco_Circuit" height="10%" width="10%">
+                        <p>Circuit:Circuit de Monaco</p>
+                        <p>Date:24 May</p> 
+                        <nz-alert nzType="warning" nzMessage="Currently Postponed" nzShowIcon></nz-alert>
+                    </nz-card>
+                </div>
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Azerbaijan Grand Prix" (click)="showAzerbaijan()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Baku_Circuit.png.transform/9col/image.png" alt="Baku_Circuit" height="10%" width="10%">
+                        <p>Circuit:Baku City Circuit</p>
+                        <p>Date:07 Jun</p>
+                        <nz-alert nzType="warning" nzMessage="Currently Postponed" nzShowIcon></nz-alert>
+                    </nz-card>
+                </div>
+            </div> 
+            
+            <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Canadian Grand Prix" (click)="showCanadian()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Canada_Circuit.png.transform/9col/image.png" alt="Canada_Circuit" height="10%" width="10%">
+                        <p>Circuit:Circuit Gilles-Villeneuve</p>
+                        <p>Date:15 Jun</p> 
+                        <nz-alert nzType="warning" nzMessage="Currently Postponed" nzShowIcon></nz-alert>
+                    </nz-card>
+                </div>
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="French Grand Prix" (click)="showFrench()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/France_Circuit.png.transform/9col/image.png" alt="France_Circuit" height="10%" width="10%">
+                        <p>Circuit:Circuit Paul Ricard</p>
+                        <p>Date:28 Jun</p>
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>
+                    </nz-card>
+                </div>
+            </div> 
+
+            <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Austrian Grand Prix" (click)="showAustrian()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Austria_Circuit.png.transform/9col/image.png" alt="Austria_Circuit" height="10%" width="10%">
+                        <p>Circuit:Red Bull Ring</p>
+                        <p>Date:05 Jul</p> 
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>                 
+                       </nz-card>
+                </div>
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="British Grand Prix" (click)="showBritish()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Great_Britain_Circuit.png.transform/9col/image.png" alt="Great_Britain_Circuit" height="10%" width="10%">
+                        <p>Circuit:Silverstone Circuit</p>
+                        <p>Date:19 Jul</p>
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>                 
+                       </nz-card>
+                </div>
+            </div> 
+
+            <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Hungarian Grand Prix" (click)="showHungarian()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Hungary_Circuit.png.transform/9col/image.png" alt="Hungary_Circuit" height="10%" width="10%">
+                        <p>Circuit:Hungaroring</p>
+                        <p>Date:02 Aug</p> 
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>                 
+                       </nz-card>
+                </div>
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Belgian Grand Prix" (click)="showBelgian()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Belgium_Circuit.png.transform/9col/image.png" alt="Belgium_Circuit" height="10%" width="10%">
+                        <p>Circuit:Circuit de Spa-Francorchamps</p>
+                        <p>Date:30 Aug</p>
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>                   
+                     </nz-card>
+                </div>
+            </div> 
+
+            <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Italian Grand Prix" (click)="showItalian()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Italy_Circuit.png.transform/9col/image.png" alt="Italy_Circuit" height="10%" width="10%">
+                        <p>Circuit:Autodromo Nazionale Monza</p>
+                        <p>Date:06 Sep</p> 
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>                  
+                      </nz-card>
+                </div>
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Singapore Grand Prix" (click)="showSingapore()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Singapore_Circuit.png.transform/9col/image.png" alt="Singapore_Circuit" height="10%" width="10%">
+                        <p>Circuit:Marina Bay Street Circuit</p>
+                        <p>Date:20 Sep</p>
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>                 
+                       </nz-card>
+                </div>
+            </div> 
+
+            <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Russian Grand Prix" (click)="showRussian()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Russia_Circuit.png.transform/9col/image.png" alt="Russia_Circuit" height="10%" width="10%">
+                        <p>Circuit:Sochi Autodrom</p>
+                        <p>Date:27 Sep</p> 
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>                  
+                      </nz-card>
+                </div>
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Japanese Grand Prix" (click)="showJapanese()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Japan_Circuit.png.transform/9col/image.png" alt="Japan_Circuit" height="10%" width="10%">
+                        <p>Circuit:Suzuka International Racing Course</p>
+                        <p>Date:11 Oct</p>
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>                  
+                      </nz-card>
+                </div>
+            </div> 
+
+            <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="US Grand Prix" (click)="showUS()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/USA_Circuit.png.transform/9col/image.png" alt="USA_Circuit" height="10%" width="10%">
+                        <p>Circuit:Circuit of The Americas</p>
+                        <p>Date:25 Oct</p> 
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>                 
+                       </nz-card>
+                </div>
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Mexico City Grand Prix" (click)="showMexico()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Mexico_Circuit.png.transform/9col/image.png" alt="Mexico_Circuit" height="10%" width="10%">
+                        <p>Circuit:Autodromo Hermanos Rodriguez</p>
+                        <p>Date:01 Nov</p>
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>
+                    </nz-card>
+                </div>
+            </div>
+            
+            <div nz-row [nzGutter]="6">
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Brazilian Grand Prix" (click)="showBrazilian()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Brazil_Circuit.png.transform/9col/image.png" alt="Brazil_Circuit" height="10%" width="10%">
+                        <p>Circuit:Autodromo Jose Carlos Pace</p>
+                        <p>Date:15 Nov</p> 
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>
+                    </nz-card>
+                </div>
+                <div nz-col [nzSpan]="12">
+                    <nz-card nzHoverable nzTitle="Abu Dhabi Grand Prix" (click)="showAbuDhabi()">
+                        <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Abu_Dhabi_Circuit.png.transform/9col/image.png" alt="Abu_Dhabi_Circuit" height="10%" width="10%">
+                        <p>Circuit:Yas Marina Circuit</p>
+                        <p>Date:29 Nov</p>
+                        <nz-alert nzType="success" nzMessage="Currently No Further Action" nzShowIcon></nz-alert>
+                    </nz-card>
+                </div>
+            </div> 
+              
+        </div>
+    </div>
+  
+</div>
+
+
