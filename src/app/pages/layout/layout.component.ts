@@ -36,6 +36,10 @@ export class LayoutComponent implements OnInit {
     this.Router.navigate(['/home/driverinfo']);
   }
 
+  gotoTeam(){
+    this.Router.navigate(['/home/teaminfo']);
+  }
+
   gotoRace(){
     this.Router.navigate(['/home/raceinfo']);
   }

@@ -7,6 +7,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { UserinfoComponent } from './pages/userinfo/userinfo.component';
 import { DriverinfoComponent } from './pages/driverinfo/driverinfo.component';
 import { RaceinfoComponent } from './pages/raceinfo/raceinfo.component';
+import { TeaminfoComponent } from './pages/teaminfo/teaminfo.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path:'driverinfo',
         component: DriverinfoComponent
+      },
+      {
+        path:'teaminfo',
+        component: TeaminfoComponent
       },
       {
         path:'raceinfo',

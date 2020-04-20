@@ -10,7 +10,8 @@
         <nz-page-header class="site-page-header" nzTitle="新闻"></nz-page-header>
         <nz-collapse [nzBordered]="false" nzAccordion>
             <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
-              <p>{{ panel.name }} content</p>
+              <p>{{ panel.content }}</p>
+              <img class="img" src={{panel.imgurl}} alt={{panel.imgname}}>
             </nz-collapse-panel>
           </nz-collapse>
     </div>

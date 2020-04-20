@@ -120,7 +120,7 @@ export class DriverinfoComponent implements OnInit {
 
   showLECLERC():void{
     this.modal.info({
-      nzTitle: 'Chaerles LECLERC',
+      nzTitle: 'Charles LECLERC',
       nzContent: '<p>Born in the Mediterranean idyll of Monaco, Leclerc arrived in F1 on a tidal wave of expectation. Practically peerless on his way to the GP3 and Formula 2 crowns, he showcased a dazzling array of skills from scorching pole positions, commanding victories – even when his car caught fire twice at Silverstone – to an ability to muscle his way through the pack. Winning back-to-back championships also taught Leclerc how to handle pressure, another useful tool in the big pond of Formula 1 racing. </p>',
     });
   }
