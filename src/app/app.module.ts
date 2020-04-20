@@ -18,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DriverinfoComponent } from './pages/driverinfo/driverinfo.component';
 import { RaceinfoComponent } from './pages/raceinfo/raceinfo.component';
 import { TeaminfoComponent } from './pages/teaminfo/teaminfo.component';
+import { ShopComponent } from './pages/shop/shop.component';
+import { ShoppingcartComponent } from './pages/shoppingcart/shoppingcart.component';
 
 registerLocaleData(zh);
 
@@ -31,7 +33,9 @@ registerLocaleData(zh);
     UserinfoComponent,
     DriverinfoComponent,
     RaceinfoComponent,
-    TeaminfoComponent
+    TeaminfoComponent,
+    ShopComponent,
+    ShoppingcartComponent
   ],
   imports: [
     BrowserModule,

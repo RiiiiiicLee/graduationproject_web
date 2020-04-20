@@ -1,0 +1,46 @@
+<nz-page-header class="site-page-header" nzTitle="ShoppingCart" nzSubtitle="购物车">
+  <nz-page-header-extra class="site-page-header-button">
+    <button nz-button nzType="primary" (click)="gotoshop()">
+      <i nz-icon nzType="shop" nzTheme="outline"></i>Back to Shop</button>
+  </nz-page-header-extra>
+</nz-page-header>
+
+<div class="wrap">
+  <div style="background:rgb(248, 247, 247);padding:30px;">
+    <nz-table #basicTable [nzData]="listOfData">
+      <thead>
+        <tr>
+          <th id="name">Name</th>
+          <th id="team">Team</th>
+          <th id="image">Image</th>
+          <th id="price">Price</th>
+          <th id="num">Number</th>
+          <th id="confirm"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.name }}</td>
+          <td>
+            <img src="https://productview1.fanobject.com/0027/6184/00276184_00.jpg?imwidth=250" alt="{{data.name}}"
+              height="5%" width="5%">
+          </td>
+          <td>{{ data.team }}</td>
+          <td>{{ data.price }}</td>
+          <td>
+            <nz-input-number [(ngModel)]="data.num" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1" [nzMin]="99"
+              [nzStep]="1"></nz-input-number>
+          </td>
+          <td>
+            <button nz-button (click)="addToShoppingCart(data.key,data.num)" nzType="default"
+              nzShape="round"><i nz-icon nzType="minus" nzTheme="outline"></i>delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <div class="confirm" style="margin-left: 40%;width: 20%;">
+      <button nz-button nzType="primary" (click)="gotoshop()" nzBlock nzShape="round">
+        <i nz-icon nzType="shopping" nzTheme="outline"></i>Confirm</button>
+    </div>
+  </div>
+</div>

@@ -44,6 +44,17 @@ export class LayoutComponent implements OnInit {
     this.Router.navigate(['/home/raceinfo']);
   }
 
+  gotoShop(){
+    if(window.localStorage.getItem('user_name')==null){
+      this.modal.info({
+        nzTitle: 'Please log in',
+        nzContent: '<p>请在登录后进入赛车周边购物商城</p>',
+      });
+    }else{
+      this.Router.navigate(['/home/shop']);
+    }
+  }
+
   nologin():boolean{
     if(this.username ==null){
       return true;
@@ -59,14 +70,12 @@ export class LayoutComponent implements OnInit {
       nzContent: '<b>please confirm</b>',
       nzOnOk: () => this.doLogout()
     });
-      
-    }
+  }
   
-    doLogout(){
-      window.localStorage.removeItem('auth_token');
-      window.localStorage.removeItem('user_name');
-      // window.alert('已退出登录');
-      location.reload();
-    }
+  doLogout(){
+    window.localStorage.removeItem('auth_token');
+    window.localStorage.removeItem('user_name');
+    location.reload();
+  }
 
 }

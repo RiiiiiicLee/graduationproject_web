@@ -8,6 +8,8 @@ import { UserinfoComponent } from './pages/userinfo/userinfo.component';
 import { DriverinfoComponent } from './pages/driverinfo/driverinfo.component';
 import { RaceinfoComponent } from './pages/raceinfo/raceinfo.component';
 import { TeaminfoComponent } from './pages/teaminfo/teaminfo.component';
+import { ShopComponent } from './pages/shop/shop.component';
+import { ShoppingcartComponent } from './pages/shoppingcart/shoppingcart.component';
 
 
 const routes: Routes = [
@@ -51,7 +53,15 @@ const routes: Routes = [
       {
         path:'raceinfo',
         component: RaceinfoComponent
-      }
+      },
+      {
+        path:'shop',
+        component: ShopComponent
+      },
+      {
+        path:'shoppingcart',
+        component:ShoppingcartComponent
+      },
     ]
   },
 ];
