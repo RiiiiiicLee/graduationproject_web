@@ -3,11 +3,18 @@ import { Router } from '@angular/router'
 import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
-  selector: 'app-shoppingcart',
-  templateUrl: './shoppingcart.component.html',
-  styleUrls: ['./shoppingcart.component.less']
+  selector: 'app-confirmpage',
+  templateUrl: './confirmpage.component.html',
+  styleUrls: ['./confirmpage.component.less']
 })
-export class ShoppingcartComponent implements OnInit {
+export class ConfirmpageComponent implements OnInit {
+
+  radioValue = '1';
+  style = {
+    display: 'block',
+    height: '50px',
+    lineHeight: '10px',
+  };
 
   constructor(
     private Router: Router,
@@ -20,18 +27,27 @@ export class ShoppingcartComponent implements OnInit {
     }
   }
 
-  gotoshop() {
-    this.Router.navigate(['/home/shop']);
+  onBack(){
+    this.Router.navigate(['/home/shoppingcart']);
   }
 
-  gotoConfirm() {
-    this.Router.navigate(['/home/confirm']);
+  gotoResult() {
+    this.Router.navigate(['/home/result']);
   }
 
   addToShoppingCart(id: string, number: number) {
     console.log(id);
     this.message.info(id + "商品" + number + "件，已加入购物车！")
   }
+
+  addresslist=[
+    {
+      addressId:'1',
+      addressInfo:"上海市上海",
+      addressName:'王五',
+      tel:'123456789'
+    }
+  ]
 
   listOfData = [
     {

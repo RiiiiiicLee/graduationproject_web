@@ -1,99 +1,110 @@
-<nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Team" nzSubtitle="查看车队介绍"></nz-page-header>
+<nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Team" nzSubtitle="查看车队介绍">
+</nz-page-header>
 <div class="wrap">
-    <div style="background: rgb(235, 235, 236);padding:30px;">
-        <div nz-row [nzGutter]="6">
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="Alfa Romeo Racing" (click)="showAlfa()">
-                  <img src="https://e2.365dm.com/18/03/768x432/skysports-f1-sauber_4261827.jpg?20180322113323" alt="AlfaRomeo" height="20%" width="20%">
-                  <p>Full Team Name:Alfa Romeo Racing ORLEN</p>
-                  <p>Team Chief:Frédéric Vasseur</p>
-                  <p>Driver:Kimi Räikkönen & Antonio GIOVINAZZI</p> 
-              </nz-card>
-            </div>
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="McLaren" (click)="showMcLaren()">
-                  <img src="https://e2.365dm.com/18/03/768x432/skysports-mclaren-f1_4261836.jpg?20180322113448" alt="McLaren" height="20%" width="20%">
-                  <p>Full Team Name:McLaren F1 Team</p>
-                  <p>Team Chief:James Key</p>
-                  <p>Driver:Carlos SAINZ & Lando NORRIS</p> 
-              </nz-card>
-            </div>
-        </div>
-
-        <div nz-row [nzGutter]="6">
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="Haas" (click)="showHaas()">
-                  <img src="https://e2.365dm.com/17/03/768x432/skysports-haas-car_3918689.jpg?20170328124758" alt="Haas" height="20%" width="20%">
-                  <p>Full Team Name:Haas F1 Team</p>
-                  <p>Team Chief:Guenther Steiner</p>
-                  <p>Driver:Romain Grosjean & Kevin Magnussen</p> 
-              </nz-card>
-            </div>
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="Alpha Tauri" (click)="showAlphaTauri()">
-                  <img src="https://e0.365dm.com/18/03/768x432/skysports-toro-rosso-f1_4261830.jpg?20180322113341" alt="AlphaTauri" height="20%" width="20%">
-                  <p>Full Team Name:Scuderia AlphaTauri Honda</p>
-                  <p>Team Chief:Franz Tost</p>
-                  <p>Driver:Danill KVYAT & Pierre Gasly</p> 
-              </nz-card>
-            </div>
-        </div>
-
-        <div nz-row [nzGutter]="6">
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="Ferrari" (click)="showFerrari()">
-                  <img src="https://e2.365dm.com/18/03/768x432/skysports-ferrari-f1_4261835.jpg?20180322113437" alt="Ferrari" height="20%" width="20%">
-                  <p>Full Team Name:Scuderia Ferrari Mission Winnow</p>
-                  <p>Team Chief:Mattia Binotto</p>
-                  <p>Driver:Charles LECLERC & Sebastian Vettel</p> 
-              </nz-card>
-            </div>
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="Racing Point" (click)="showRacingPoint()">
-                  <img src="https://e2.365dm.com/18/03/768x432/skysports-force-india-f1_4261833.jpg?20180322113407" alt="RacingPoint" height="20%" width="20%">
-                  <p>Full Team Name:BWT Racing Point F1 Team</p>
-                  <p>Team Chief:Otmar Szafnauer</p>
-                  <p>Driver:Lance STROLL & Sergio PEREZ</p> 
-              </nz-card>
-            </div>
-        </div>
-
-        <div nz-row [nzGutter]="6">
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="Red Bull" (click)="showRedBull()">
-                  <img src="https://e2.365dm.com/18/03/768x432/skysports-red-bull-f1_4261834.jpg?20180322113416" alt="RedBull" height="20%" width="20%">
-                  <p>Full Team Name:Aston Martin Red Bull Racing</p>
-                  <p>Team Chief:Christian Horner</p>
-                  <p>Driver:Alexander ALBON & Max Verstappen</p> 
-              </nz-card>
-            </div>
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="Mercedes" (click)="showMercedes()">
-                  <img src="https://e1.365dm.com/18/03/768x432/skysports-mercedes-f1_4261838.jpg?20180322113502" alt="Mercedes" height="20%" width="20%">
-                  <p>Full Team Name:Mercedes-AMG Petronas F1 Team</p>
-                  <p>Team Chief:Toto Wolff</p>
-                  <p>Driver:Lewis HAMILTON & Valtteri BOTTAS</p> 
-              </nz-card>
-            </div>
-        </div>
-
-        <div nz-row [nzGutter]="6">
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="Renault" (click)="showRenault()">
-                  <img src="https://e2.365dm.com/18/03/768x432/skysports-renault-f1_4261831.jpg?20180322113350" alt="Renault" height="20%" width="20%">
-                  <p>Full Team Name:Renault DP World F1 Team</p>
-                  <p>Team Chief:Cyril Abiteboul</p>
-                  <p>Driver:Esteban OCON & Daniel Ricciardo</p> 
-              </nz-card>
-            </div>
-            <div nz-col [nzSpan]="12">
-              <nz-card nzHoverable nzTitle="Williams" (click)="showWilliams()">
-                  <img src="https://e2.365dm.com/18/03/768x432/skysports-williams-f1_4261832.jpg?20180322113358" alt="Williams" height="20%" width="20%">
-                  <p>Full Team Name:ROKiT Williams Racing</p>
-                  <p>Team Chief:Frank Williams</p>
-                  <p>Driver:George RUSSEL & Nicholas Latifi</p> 
-              </nz-card>
-            </div>
-        </div>
+  <div style="background: rgb(235, 235, 236);padding:30px;">
+    <div nz-row [nzGutter]="6">
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="Alfa Romeo Racing" (click)="showAlfa()">
+          <img src="https://e2.365dm.com/18/03/768x432/skysports-f1-sauber_4261827.jpg?20180322113323" alt="AlfaRomeo"
+            height="20%" width="20%">
+          <p>Full Team Name:Alfa Romeo Racing ORLEN</p>
+          <p>Team Chief:Frédéric Vasseur</p>
+          <p>Driver:Kimi Räikkönen & Antonio GIOVINAZZI</p>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="McLaren" (click)="showMcLaren()">
+          <img src="https://e2.365dm.com/18/03/768x432/skysports-mclaren-f1_4261836.jpg?20180322113448" alt="McLaren"
+            height="20%" width="20%">
+          <p>Full Team Name:McLaren F1 Team</p>
+          <p>Team Chief:James Key</p>
+          <p>Driver:Carlos SAINZ & Lando NORRIS</p>
+        </nz-card>
+      </div>
     </div>
+
+    <div nz-row [nzGutter]="6">
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="Haas" (click)="showHaas()">
+          <img src="https://e2.365dm.com/17/03/768x432/skysports-haas-car_3918689.jpg?20170328124758" alt="Haas"
+            height="20%" width="20%">
+          <p>Full Team Name:Haas F1 Team</p>
+          <p>Team Chief:Guenther Steiner</p>
+          <p>Driver:Romain Grosjean & Kevin Magnussen</p>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="Alpha Tauri" (click)="showAlphaTauri()">
+          <img src="https://e0.365dm.com/18/03/768x432/skysports-toro-rosso-f1_4261830.jpg?20180322113341"
+            alt="AlphaTauri" height="20%" width="20%">
+          <p>Full Team Name:Scuderia AlphaTauri Honda</p>
+          <p>Team Chief:Franz Tost</p>
+          <p>Driver:Danill KVYAT & Pierre Gasly</p>
+        </nz-card>
+      </div>
+    </div>
+
+    <div nz-row [nzGutter]="6">
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="Ferrari" (click)="showFerrari()">
+          <img src="https://e2.365dm.com/18/03/768x432/skysports-ferrari-f1_4261835.jpg?20180322113437" alt="Ferrari"
+            height="20%" width="20%">
+          <p>Full Team Name:Scuderia Ferrari Mission Winnow</p>
+          <p>Team Chief:Mattia Binotto</p>
+          <p>Driver:Charles LECLERC & Sebastian Vettel</p>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="Racing Point" (click)="showRacingPoint()">
+          <img src="https://e2.365dm.com/18/03/768x432/skysports-force-india-f1_4261833.jpg?20180322113407"
+            alt="RacingPoint" height="20%" width="20%">
+          <p>Full Team Name:BWT Racing Point F1 Team</p>
+          <p>Team Chief:Otmar Szafnauer</p>
+          <p>Driver:Lance STROLL & Sergio PEREZ</p>
+        </nz-card>
+      </div>
+    </div>
+
+    <div nz-row [nzGutter]="6">
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="Red Bull" (click)="showRedBull()">
+          <img src="https://e2.365dm.com/18/03/768x432/skysports-red-bull-f1_4261834.jpg?20180322113416" alt="RedBull"
+            height="20%" width="20%">
+          <p>Full Team Name:Aston Martin Red Bull Racing</p>
+          <p>Team Chief:Christian Horner</p>
+          <p>Driver:Alexander ALBON & Max Verstappen</p>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="Mercedes" (click)="showMercedes()">
+          <img src="https://e1.365dm.com/18/03/768x432/skysports-mercedes-f1_4261838.jpg?20180322113502" alt="Mercedes"
+            height="20%" width="20%">
+          <p>Full Team Name:Mercedes-AMG Petronas F1 Team</p>
+          <p>Team Chief:Toto Wolff</p>
+          <p>Driver:Lewis HAMILTON & Valtteri BOTTAS</p>
+        </nz-card>
+      </div>
+    </div>
+
+    <div nz-row [nzGutter]="6">
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="Renault" (click)="showRenault()">
+          <img src="https://e2.365dm.com/18/03/768x432/skysports-renault-f1_4261831.jpg?20180322113350" alt="Renault"
+            height="20%" width="20%">
+          <p>Full Team Name:Renault DP World F1 Team</p>
+          <p>Team Chief:Cyril Abiteboul</p>
+          <p>Driver:Esteban OCON & Daniel Ricciardo</p>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <nz-card nzHoverable nzTitle="Williams" (click)="showWilliams()">
+          <img src="https://e2.365dm.com/18/03/768x432/skysports-williams-f1_4261832.jpg?20180322113358" alt="Williams"
+            height="20%" width="20%">
+          <p>Full Team Name:ROKiT Williams Racing</p>
+          <p>Team Chief:Frank Williams</p>
+          <p>Driver:George RUSSEL & Nicholas Latifi</p>
+        </nz-card>
+      </div>
+    </div>
+  </div>
 </div>

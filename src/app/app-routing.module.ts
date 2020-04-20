@@ -10,6 +10,9 @@ import { RaceinfoComponent } from './pages/raceinfo/raceinfo.component';
 import { TeaminfoComponent } from './pages/teaminfo/teaminfo.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { ShoppingcartComponent } from './pages/shoppingcart/shoppingcart.component';
+import { ConfirmpageComponent } from './pages/confirmpage/confirmpage.component';
+import { OrderComponent } from './pages/order/order.component';
+import { ResultpageComponent } from './pages/resultpage/resultpage.component';
 
 
 const routes: Routes = [
@@ -62,6 +65,18 @@ const routes: Routes = [
         path:'shoppingcart',
         component:ShoppingcartComponent
       },
+      {
+        path:'confirm',
+        component: ConfirmpageComponent
+      },
+      {
+        path:'order',
+        component: OrderComponent
+      },
+      {
+        path:'result',
+        component: ResultpageComponent
+      }
     ]
   },
 ];

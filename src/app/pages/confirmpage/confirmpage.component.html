@@ -1,0 +1,77 @@
+<nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Confirm" nzSubtitle="确认购物信息">
+    <nz-page-header-extra class="site-page-header-button">
+    </nz-page-header-extra>
+</nz-page-header>
+<div class="stepswrap">
+    <nz-divider></nz-divider>
+    <nz-steps nzLabelPlacement="vertical">
+        <nz-step nzTitle="shopping cart" nzStatus="finish" nzIcon="shopping-cart"></nz-step>
+        <nz-step nzTitle="confirm" nzStatus="process" nzIcon="loading"></nz-step>
+        <nz-step nzTitle="success" nzStatus="wait" nzIcon="check-circle"></nz-step>
+    </nz-steps>
+</div>
+
+<div class="addresswrap">
+    <div nz-row [nzGutter]="6">
+        <div nz-col [nzSpan]="24">
+            <nz-card nzHoverable nzTitle="Please select your address">
+                <nz-radio-group [(ngModel)]="radioValue" *ngFor="let address of addresslist">
+                    <label nz-radio [ngStyle]="style" nzValue={{address.addressId}}>
+                        收货地址：{{address.addressInfo}}
+                        <nz-divider nzType="vertical"></nz-divider>
+                        收货人：{{address.addressName}}
+                        <nz-divider nzType="vertical"></nz-divider>
+                        联系人电话：{{address.tel}}
+                    </label>
+                    <label nz-radio [ngStyle]="style" nzValue="M">
+                        Add new address...
+                        <input type="text" nz-input *ngIf="radioValue === 'M'" />
+                        <input type="text" nz-input *ngIf="radioValue === 'M'" />
+                        <input type="text" nz-input *ngIf="radioValue === 'M'" />
+                    </label>
+                </nz-radio-group>
+            </nz-card>
+        </div>
+    </div>
+</div>
+
+
+<div class="wrap">
+    <div style="background:rgb(248, 247, 247);padding:30px;">
+        <nz-table #basicTable [nzData]="listOfData">
+            <thead>
+                <tr>
+                    <th id="name">Name</th>
+                    <th id="team">Team</th>
+                    <th id="image">Image</th>
+                    <th id="price">Price</th>
+                    <th id="num">Number</th>
+                    <th id="confirm"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of basicTable.data">
+                    <td>{{ data.name }}</td>
+                    <td>
+                        <img src="https://productview1.fanobject.com/0027/6184/00276184_00.jpg?imwidth=250"
+                            alt="{{data.name}}" height="5%" width="5%">
+                    </td>
+                    <td>{{ data.team }}</td>
+                    <td>{{ data.price }}</td>
+                    <td>
+                        <nz-input-number [(ngModel)]="data.num" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1"
+                            [nzMin]="99" [nzStep]="1"></nz-input-number>
+                    </td>
+                    <td>
+                        <button nz-button (click)="addToShoppingCart(data.key,data.num)" nzType="default"
+                            nzShape="round"><i nz-icon nzType="minus" nzTheme="outline"></i>delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </nz-table>
+        <div class="confirm" style="margin-left: 40%;width: 20%;">
+            <button nz-button nzType="primary" (click)="gotoResult()" nzBlock nzShape="round">
+                <i nz-icon nzType="shopping" nzTheme="outline"></i>Confirm</button>
+        </div>
+    </div>
+</div>
