@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, zh_CN, NzFormModule } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, DatePipe } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -24,6 +24,8 @@ import { ConfirmpageComponent } from './pages/confirmpage/confirmpage.component'
 import { OrderComponent } from './pages/order/order.component';
 import { ResultpageComponent } from './pages/resultpage/resultpage.component';
 import { OrderdetailComponent } from './pages/orderdetail/orderdetail.component';
+import { GlobalHttpInterceptor } from './global.interceptor';
+
 
 registerLocaleData(zh);
 
@@ -55,7 +57,13 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     NzFormModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: GlobalHttpInterceptor,
+    multi: true
+  },
+  DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -11,7 +11,7 @@ import {Router} from '@angular/router'
 export class LoginComponent implements OnInit {
 
   constructor(
-    private Router: Router ,
+    private Router: Router,
     private HttpClient: HttpClient
   ) { }
 
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  login(){
+
+  login() {
     const formData = this.loginForm;
     this.HttpClient.post('http://localhost:8080/login', formData).toPromise().then((data: any) => {
       window.localStorage.setItem('auth_token', data.Token)
