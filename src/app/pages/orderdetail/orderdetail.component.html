@@ -8,12 +8,12 @@
             <nz-descriptions-item nzTitle="Name">{{order.name}}</nz-descriptions-item>
             <nz-descriptions-item nzTitle="Tel">{{order.tel}}</nz-descriptions-item>
             <nz-descriptions-item nzTitle="Order Time">
-              {{order.creatTime}}
+                {{order.creatTime}}
             </nz-descriptions-item>
             <nz-descriptions-item nzTitle="Address" [nzSpan]="2">
-              {{order.address}}
+                {{order.address}}
             </nz-descriptions-item>
-          </nz-descriptions>
+        </nz-descriptions>
         <nz-divider></nz-divider>
         <nz-table #basicTable [nzData]="listOfData">
             <thead>
@@ -35,11 +35,76 @@
                     <td>{{ data.team }}</td>
                     <td>{{ data.price }}</td>
                     <td>
-                        <nz-input-number [(ngModel)]="data.num" [nzPrecision]="0" [nzDisabled]="true" nzPrecisionMode="cut" [nzMin]="1"
-                            [nzMin]="99" [nzStep]="1"></nz-input-number>
+                        <nz-input-number [(ngModel)]="data.num" [nzPrecision]="0" [nzDisabled]="true"
+                            nzPrecisionMode="cut" [nzMin]="1" [nzMin]="99" [nzStep]="1"></nz-input-number>
                     </td>
                 </tr>
             </tbody>
         </nz-table>
+
+        <button nz-button nzType="primary" (click)="open()">Edit</button>
+        <nz-drawer [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
+            [nzMaskClosable]="false" [nzWidth]="720" [nzVisible]="visible" nzTitle="Edit" (nzOnClose)="close()">
+            <form nz-form (ngSubmit)="editOrder()">
+                <div nz-row nzGutter="8">
+                    <div nz-col nzSpan="12">
+                        <nz-form-item>
+                            <nz-form-label>OrderNo</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input name="orderno" [(ngModel)]=order.orderNo readonly="readonly">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div nz-col nzSpan="12">
+                        <nz-form-item>
+                            <nz-form-label>Name</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input name="name" [(ngModel)]=order.name>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <div nz-row nzGutter="8">
+                    <div nz-col nzSpan="12">
+                        <nz-form-item>
+                            <nz-form-label>Tel</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input name="tel" [(ngModel)]=order.tel>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div nz-col nzSpan="12">
+                        <nz-form-item>
+                            <nz-form-label>Order Time</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input name="ordertime" [(ngModel)]=order.creatTime readonly="readonly">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <div nz-row nzGutter="8">
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-label>Address</nz-form-label>
+                            <nz-form-control>
+                                <textarea nz-input placeholder="please enter address"
+                                    [nzAutosize]="{ minRows: 2, maxRows: 2 }" name="address"
+                                    [(ngModel)]=order.address></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <div nz-row nzGutter="8">
+                    <div nz-col nzSpan="24">
+                        <nz-form-control>
+                            <button nz-button nzType="primary" nzBlock>Confrim</button>
+                        </nz-form-control>
+                    </div>
+                </div>
+            </form>
+        </nz-drawer>
+        <nz-divider nzType="vertical"></nz-divider>
+        <button nz-button (click)="deleteOrder()">
+            Delete</button>
     </div>
 </div>

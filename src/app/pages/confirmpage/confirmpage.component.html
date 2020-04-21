@@ -23,11 +23,54 @@
                         <nz-divider nzType="vertical"></nz-divider>
                         联系人电话：{{address.tel}}
                     </label>
-                    <label nz-radio [ngStyle]="style" nzValue="M">
+                    <label nz-radio [ngStyle]="style" nzValue="add">
                         Add new address...
-                        <input type="text" nz-input *ngIf="radioValue === 'M'" />
-                        <input type="text" nz-input *ngIf="radioValue === 'M'" />
-                        <input type="text" nz-input *ngIf="radioValue === 'M'" />
+                        <button nz-button nzType="default" (click)="open()" *ngIf="radioValue === 'add'">Add</button>
+                        <nz-drawer
+                            [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
+                            [nzMaskClosable]="false" [nzWidth]="600" [nzVisible]="visible" nzTitle="Add new address"
+                            (nzOnClose)="close()">
+                            <form nz-form (ngSubmit)="addAddress()">
+                                <div nz-row nzGutter="8">
+                                    <div nz-col nzSpan="24">
+                                        <nz-form-item>
+                                            <nz-form-label>Name</nz-form-label>
+                                            <nz-form-control>
+                                                <input nz-input name="name" [(ngModel)]=addressData.addressName>
+                                            </nz-form-control>
+                                        </nz-form-item>
+                                    </div>
+                                    <div nz-col nzSpan="24">
+                                        <nz-form-item>
+                                            <nz-form-label>Tel</nz-form-label>
+                                            <nz-form-control>
+                                                <input nz-input name="tel" [(ngModel)]=addressData.tel>
+                                            </nz-form-control>
+                                        </nz-form-item>
+                                    </div>
+                                </div>
+                                <div nz-row nzGutter="8">
+                                    <div nz-col nzSpan="24">
+                                        <nz-form-item>
+                                            <nz-form-label>Address</nz-form-label>
+                                            <nz-form-control>
+                                                <textarea nz-input placeholder="please enter address"
+                                                    [nzAutosize]="{ minRows: 2, maxRows: 2 }" name="address"
+                                                    [(ngModel)]=addressData.addressInfo></textarea>
+                                            </nz-form-control>
+                                        </nz-form-item>
+                                    </div>
+                                </div>
+                                <nz-divider></nz-divider>
+                                <div nz-row nzGutter="8">
+                                    <nz-form-item>
+                                        <nz-form-control>
+                                            <button nz-button nzType="primary" nzBlock>Confrim</button>
+                                          </nz-form-control>
+                                    </nz-form-item>
+                                </div>
+                            </form>
+                        </nz-drawer>
                     </label>
                 </nz-radio-group>
             </nz-card>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 import { HttpClient } from '@angular/common/http'
 import { NzMessageService } from 'ng-zorro-antd';
 
@@ -12,31 +12,31 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class UserinfoComponent implements OnInit {
 
-  formData :any= {
+  formData: any = {
     username: '',
-    tel:'',
+    tel: '',
     email: '',
-    birthday:'',
-    address:'',
+    birthday: '',
+    address: '',
   }
   constructor(
-    private Router: Router ,
+    private Router: Router,
     private HttpClient: HttpClient,
     private message: NzMessageService
   ) { }
 
   ngOnInit() {
-   this.formData.username=window.localStorage.getItem('user_name');
-   if(this.formData.username==null){
-     this.Router.navigate(['/home']);
-   }
-   console.log(this.formData.username);
-   this.formData.tel="111111";
-   this.formData.email="add@address.com"
-   this.formData.birthday="2020-2-1";
-   this.formData.address="shanghai"
+    this.formData.username = window.localStorage.getItem('user_name');
+    if (this.formData.username == null) {
+      this.Router.navigate(['/home']);
+    }
+    console.log(this.formData.username);
+    this.formData.tel = "111111";
+    this.formData.email = "add@address.com"
+    this.formData.birthday = "2020-2-1";
+    this.formData.address = "shanghai"
 
-   console.log(this.Router.url);
+    console.log(this.Router.url);
   }
 
   submitForm(): void {
@@ -44,7 +44,7 @@ export class UserinfoComponent implements OnInit {
     this.Router.navigate(['/home'])
   }
 
-  onBack(){
+  onBack() {
     this.Router.navigate(['/home'])
   }
 

@@ -9,12 +9,21 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class ConfirmpageComponent implements OnInit {
 
+  visible = false;
   radioValue = '1';
+
   style = {
     display: 'block',
     height: '50px',
     lineHeight: '10px',
   };
+
+  addressData :any= {
+    addressId: '',
+    addressInfo:'',
+    addressName: '',
+    tel: '',
+  }
 
   constructor(
     private Router: Router,
@@ -24,10 +33,20 @@ export class ConfirmpageComponent implements OnInit {
   ngOnInit() {
     if (window.localStorage.getItem('user_name') == null) {
       this.Router.navigate(['/home']);
+    }else{
+      location.reload();
     }
   }
 
-  onBack(){
+  open(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
+  }
+
+  onBack() {
     this.Router.navigate(['/home/shoppingcart']);
   }
 
@@ -40,12 +59,16 @@ export class ConfirmpageComponent implements OnInit {
     this.message.info(id + "商品" + number + "件，已加入购物车！")
   }
 
-  addresslist=[
+  addAddress(){
+    console.log(this.addressData);
+  }
+
+  addresslist = [
     {
-      addressId:'1',
-      addressInfo:"上海市上海",
-      addressName:'王五',
-      tel:'123456789'
+      addressId: '1',
+      addressInfo: "上海市上海",
+      addressName: '王五',
+      tel: '123456789'
     }
   ]
 

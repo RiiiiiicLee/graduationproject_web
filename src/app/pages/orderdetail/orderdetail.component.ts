@@ -24,7 +24,6 @@ export class OrderdetailComponent implements OnInit {
     console.log(this.orderid);
   }
 
-
   onBack() {
     this.Router.navigate(['/home/order'])
   }
@@ -63,5 +62,23 @@ export class OrderdetailComponent implements OnInit {
       num: 2,
     }
   ];
+
+  visible = false;
+
+  open(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
+  }
+
+  deleteOrder():void{
+    console.log("deleted no."+this.orderid)
+  }
+
+  editOrder():void{
+    console.log(this.order)
+  }
 
 }
