@@ -24,6 +24,10 @@ export class ShoppingcartComponent implements OnInit {
     this.Router.navigate(['/home/shop']);
   }
 
+  gotoOrder(){
+    this.Router.navigate(['/home/order']);
+  }
+
   gotoConfirm() {
     this.Router.navigate(['/home/confirm']);
   }

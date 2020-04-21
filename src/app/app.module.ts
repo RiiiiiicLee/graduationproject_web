@@ -23,6 +23,7 @@ import { ShoppingcartComponent } from './pages/shoppingcart/shoppingcart.compone
 import { ConfirmpageComponent } from './pages/confirmpage/confirmpage.component';
 import { OrderComponent } from './pages/order/order.component';
 import { ResultpageComponent } from './pages/resultpage/resultpage.component';
+import { OrderdetailComponent } from './pages/orderdetail/orderdetail.component';
 
 registerLocaleData(zh);
 
@@ -41,7 +42,8 @@ registerLocaleData(zh);
     ShoppingcartComponent,
     ConfirmpageComponent,
     OrderComponent,
-    ResultpageComponent
+    ResultpageComponent,
+    OrderdetailComponent
   ],
   imports: [
     BrowserModule,

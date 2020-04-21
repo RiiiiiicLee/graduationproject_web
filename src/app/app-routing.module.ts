@@ -13,6 +13,7 @@ import { ShoppingcartComponent } from './pages/shoppingcart/shoppingcart.compone
 import { ConfirmpageComponent } from './pages/confirmpage/confirmpage.component';
 import { OrderComponent } from './pages/order/order.component';
 import { ResultpageComponent } from './pages/resultpage/resultpage.component';
+import { OrderdetailComponent } from './pages/orderdetail/orderdetail.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,10 @@ const routes: Routes = [
       {
         path:'order',
         component: OrderComponent
+      },
+      {
+        path:'orderdetail/:orderid',
+        component: OrderdetailComponent
       },
       {
         path:'result',

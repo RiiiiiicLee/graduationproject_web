@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd';
 
-
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.less']
+  selector: 'app-orderdetail',
+  templateUrl: './orderdetail.component.html',
+  styleUrls: ['./orderdetail.component.less']
 })
-export class OrderComponent implements OnInit {
+export class OrderdetailComponent implements OnInit {
+
+  orderid = this.activatedRoute.snapshot.params.orderid;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private Router: Router,
     private message: NzMessageService,
   ) { }
@@ -19,11 +21,23 @@ export class OrderComponent implements OnInit {
     if (window.localStorage.getItem('user_name') == null) {
       this.Router.navigate(['/home']);
     }
+    console.log(this.orderid);
   }
 
+
   onBack() {
-    this.Router.navigate(['/home/shop'])
+    this.Router.navigate(['/home/order'])
   }
+
+  order = 
+    {
+      orderNo: this.orderid,
+      name: '李四',
+      tel: '123456789',
+      creatTime: '2020-03-29 15:34:10',
+      address: '上海市hgfdhgfd',
+    }
+  
 
   listOfData = [
     {
@@ -49,4 +63,5 @@ export class OrderComponent implements OnInit {
       num: 2,
     }
   ];
+
 }

@@ -24,6 +24,10 @@ export class ShopComponent implements OnInit {
     this.Router.navigate(['/home/shoppingcart'])
   }
 
+  gotoOrder(){
+    this.Router.navigate(['/home/order'])
+  }
+
   onBack(){
     this.Router.navigate(['/home'])
   }

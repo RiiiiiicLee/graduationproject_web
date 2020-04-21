@@ -1,8 +1,20 @@
-<nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Order" nzSubtitle="购物订单">
+<nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Order Detail" nzSubtitle="购物订单详情">
 </nz-page-header>
 
 <div class="wrap">
     <div style="background:rgb(248, 247, 247);padding:30px;">
+        <nz-descriptions nzTitle="Info" nzBordered [nzColumn]='2'>
+            <nz-descriptions-item nzTitle="OrderNo">{{order.orderNo}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Name">{{order.name}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Tel">{{order.tel}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Order Time">
+              {{order.creatTime}}
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Address" [nzSpan]="2">
+              {{order.address}}
+            </nz-descriptions-item>
+          </nz-descriptions>
+        <nz-divider></nz-divider>
         <nz-table #basicTable [nzData]="listOfData">
             <thead>
                 <tr>
@@ -11,7 +23,6 @@
                     <th id="image">Team</th>
                     <th id="price">Price</th>
                     <th id="num">Number</th>
-                    <th id="confirm"></th>
                 </tr>
             </thead>
             <tbody>
@@ -24,13 +35,8 @@
                     <td>{{ data.team }}</td>
                     <td>{{ data.price }}</td>
                     <td>
-                        <nz-input-number [(ngModel)]="data.num" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1"
+                        <nz-input-number [(ngModel)]="data.num" [nzPrecision]="0" [nzDisabled]="true" nzPrecisionMode="cut" [nzMin]="1"
                             [nzMin]="99" [nzStep]="1"></nz-input-number>
-                    </td>
-                    <td>
-                        <button nz-button [routerLink]="['/home/orderdetail',data.key]"
-                            routerLinkActive="router-link-active" nzType="default" [nzSize]="size" nzShape="round">Check
-                            Detail <i nz-icon nzType="right" nzTheme="outline"></i></button>
                     </td>
                 </tr>
             </tbody>
