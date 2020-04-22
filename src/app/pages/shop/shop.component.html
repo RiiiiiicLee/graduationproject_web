@@ -14,7 +14,7 @@
 
 <div class="wrap">
   <div style="background:rgb(248, 247, 247);padding:30px;">
-    <nz-table #basicTable [nzData]="listOfData">
+    <nz-table #basicTable [nzData]="goodsList">
       <thead>
         <tr>
           <th id="name">Name</th>
@@ -26,20 +26,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of basicTable.data">
-          <td>{{ data.name }}</td>
+        <tr *ngFor="let goods of basicTable.data">
+          <td>{{ goods.goodsname }}</td>
           <td>
-            <img src="https://productview1.fanobject.com/0027/6184/00276184_00.jpg?imwidth=250" alt="{{data.name}}"
+            <img src="https://productview1.fanobject.com/0027/6184/00276184_00.jpg?imwidth=250" alt="{{goods.goodsname}}"
               height="5%" width="5%">
           </td>
-          <td>{{ data.team }}</td>
-          <td>{{ data.price }}</td>
+          <td>{{ goods.sponsor }}</td>
+          <td>{{ goods.goodsprice }}</td>
           <td>
-            <nz-input-number [(ngModel)]="data.num" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1" [nzMin]="99"
+            <nz-input-number [(ngModel)]="goods.goodsNum" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1" [nzMin]="99"
               [nzStep]="1"></nz-input-number>
           </td>
           <td>
-            <button nz-button (click)="addToShoppingCart(data.key,data.num)" nzType="default" [nzSize]="size"
+            <button nz-button (click)="addToShoppingCart(goods.goodsid,goods.goodsNum)" nzType="default" [nzSize]="size"
               nzShape="round"><i nz-icon nzType="plus"></i>add to shopping cart</button>
           </td>
         </tr>

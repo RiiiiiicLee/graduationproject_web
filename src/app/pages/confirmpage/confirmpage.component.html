@@ -15,14 +15,16 @@
     <div nz-row [nzGutter]="6">
         <div nz-col [nzSpan]="24">
             <nz-card nzHoverable nzTitle="Please select your address">
-                <nz-radio-group [(ngModel)]="radioValue" *ngFor="let address of addresslist">
-                    <label nz-radio [ngStyle]="style" nzValue={{address.addressId}}>
-                        收货地址：{{address.addressInfo}}
-                        <nz-divider nzType="vertical"></nz-divider>
-                        收货人：{{address.addressName}}
-                        <nz-divider nzType="vertical"></nz-divider>
-                        联系人电话：{{address.tel}}
-                    </label>
+                <nz-radio-group [(ngModel)]="radioValue">
+                    <div class="addresslist" *ngFor="let address of addressList">
+                        <label nz-radio [ngStyle]="style" nzValue={{address.addressid}}>
+                            收货地址：{{address.addressinfo}}
+                            <nz-divider nzType="vertical"></nz-divider>
+                            收货人：{{address.addressname}}
+                            <nz-divider nzType="vertical"></nz-divider>
+                            联系人电话：{{address.tel}}
+                        </label>
+                    </div>
                     <label nz-radio [ngStyle]="style" nzValue="add">
                         Add new address...
                         <button nz-button nzType="default" (click)="open()" *ngIf="radioValue === 'add'">Add</button>
@@ -36,7 +38,7 @@
                                         <nz-form-item>
                                             <nz-form-label>Name</nz-form-label>
                                             <nz-form-control>
-                                                <input nz-input name="name" [(ngModel)]=addressData.addressName>
+                                                <input nz-input name="name" [(ngModel)]=addressData.addressname>
                                             </nz-form-control>
                                         </nz-form-item>
                                     </div>
@@ -56,7 +58,7 @@
                                             <nz-form-control>
                                                 <textarea nz-input placeholder="please enter address"
                                                     [nzAutosize]="{ minRows: 2, maxRows: 2 }" name="address"
-                                                    [(ngModel)]=addressData.addressInfo></textarea>
+                                                    [(ngModel)]=addressData.addressinfo></textarea>
                                             </nz-form-control>
                                         </nz-form-item>
                                     </div>
@@ -66,7 +68,7 @@
                                     <nz-form-item>
                                         <nz-form-control>
                                             <button nz-button nzType="primary" nzBlock>Confrim</button>
-                                          </nz-form-control>
+                                        </nz-form-control>
                                     </nz-form-item>
                                 </div>
                             </form>
@@ -81,7 +83,7 @@
 
 <div class="wrap">
     <div style="background:rgb(248, 247, 247);padding:30px;">
-        <nz-table #basicTable [nzData]="listOfData">
+        <nz-table #basicTable [nzData]="shoppingCartList">
             <thead>
                 <tr>
                     <th id="name">Name</th>
@@ -94,15 +96,15 @@
             </thead>
             <tbody>
                 <tr *ngFor="let data of basicTable.data">
-                    <td>{{ data.name }}</td>
+                    <td>{{ data.goodsname }}</td>
                     <td>
                         <img src="https://productview1.fanobject.com/0027/6184/00276184_00.jpg?imwidth=250"
                             alt="{{data.name}}" height="5%" width="5%">
                     </td>
-                    <td>{{ data.team }}</td>
-                    <td>{{ data.price }}</td>
+                    <td>{{ data.sponsor }}</td>
+                    <td>{{ data.goodsprice }}</td>
                     <td>
-                        <nz-input-number [(ngModel)]="data.num" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1"
+                        <nz-input-number [(ngModel)]="data.goodsnum" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1"
                             [nzMin]="99" [nzStep]="1"></nz-input-number>
                     </td>
                     <td>

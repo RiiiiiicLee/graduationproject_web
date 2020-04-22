@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 import { NzMessageService } from 'ng-zorro-antd';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-shop',
@@ -9,57 +10,48 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class ShopComponent implements OnInit {
 
+  goodsList: any
+
   constructor(
-    private Router: Router ,
-    private message: NzMessageService ,
+    private Router: Router,
+    private message: NzMessageService,
+    private HttpClient: HttpClient
   ) { }
 
   ngOnInit() {
-   if(window.localStorage.getItem('user_name')==null){
-     this.Router.navigate(['/home']);
-   }
+    if (window.localStorage.getItem('user_name') == null) {
+      this.Router.navigate(['/home']);
+    }
+    this.showGoodsList();
   }
 
-  gotoShoppingCart(){
+  showGoodsList() {
+    this.HttpClient.get('http://localhost:8080/goods/list')
+      .toPromise().then(data => {
+        this.goodsList = data;
+        this.goodsList.forEach(goods => {
+          goods.goodsNum = 1;
+        });
+      }).catch(err => {
+        console.log(err)
+      })
+  }
+
+  gotoShoppingCart() {
     this.Router.navigate(['/home/shoppingcart'])
   }
 
-  gotoOrder(){
+  gotoOrder() {
     this.Router.navigate(['/home/order'])
   }
 
-  onBack(){
+  onBack() {
     this.Router.navigate(['/home'])
   }
 
-  addToShoppingCart(id:string,number:number){
-    console.log(id);
-    this.message.info(id+"商品"+number+"件，已加入购物车！")
+  addToShoppingCart(id: string, number: number) {
+    console.log(id+number);
+    this.message.info(id + "商品" + number + "件，已加入购物车！")
   }
 
-
-  listOfData = [
-    {
-      key: '1',
-      name: 'John Brown',
-      img:"https://productview1.fanobject.com/0027/6129/00276129_00.jpg?imwidth=600",
-      team: 'Mercedes',
-      price: 280,
-      num:1,
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      team: 'Mercedes',
-      price: 280,
-      num:1,
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      team: 'Mercedes',
-      price: 280,
-      num:2,
-    }
-  ];
 }

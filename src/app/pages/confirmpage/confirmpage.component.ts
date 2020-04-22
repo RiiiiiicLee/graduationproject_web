@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { NzMessageService } from 'ng-zorro-antd';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-confirmpage',
@@ -18,24 +19,47 @@ export class ConfirmpageComponent implements OnInit {
     lineHeight: '10px',
   };
 
+  addressList:any;
+  shoppingCartList:any;
+
   addressData :any= {
-    addressId: '',
-    addressInfo:'',
-    addressName: '',
+    addressinfo:'',
+    addressname: '',
     tel: '',
   }
 
   constructor(
     private Router: Router,
     private message: NzMessageService,
+    private HttpClient: HttpClient,
   ) { }
 
   ngOnInit() {
     if (window.localStorage.getItem('user_name') == null) {
       this.Router.navigate(['/home']);
-    }else{
-      location.reload();
     }
+    this.showAddressList();
+    this.showShoppingCartList();
+  }
+
+  showAddressList(){
+    this.HttpClient.get('http://localhost:8080/address/list/')
+      .toPromise().then(data => {
+        this.addressList = data;
+        console.log(this.addressList);
+      }).catch(err => {
+        console.log(err)
+      })
+  }
+
+  showShoppingCartList(){
+    this.HttpClient.get('http://localhost:8080/shoppingcar/list/')
+      .toPromise().then(data => {
+        this.shoppingCartList = data;
+        console.log(this.shoppingCartList);
+      }).catch(err => {
+        console.log(err)
+      })
   }
 
   open(): void {
@@ -62,54 +86,5 @@ export class ConfirmpageComponent implements OnInit {
   addAddress(){
     console.log(this.addressData);
   }
-
-  addresslist = [
-    {
-      addressId: '1',
-      addressInfo: "上海市上海",
-      addressName: '王五',
-      tel: '123456789'
-    }
-  ]
-
-  listOfData = [
-    {
-      key: '1',
-      name: 'John Brown',
-      img: "https://productview1.fanobject.com/0027/6129/00276129_00.jpg?imwidth=600",
-      team: 'Mercedes',
-      price: 280,
-      num: 1,
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      team: 'Mercedes',
-      price: 280,
-      num: 1,
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      team: 'Mercedes',
-      price: 280,
-      num: 2,
-    },
-    {
-      key: '4',
-      name: 'Joe Black',
-      team: 'Mercedes',
-      price: 280,
-      num: 2,
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      team: 'Mercedes',
-      price: 280,
-      num: 2,
-    },
-
-  ];
 
 }

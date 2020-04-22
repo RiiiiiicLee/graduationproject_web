@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { NzMessageService } from 'ng-zorro-antd';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -9,15 +10,29 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class ShoppingcartComponent implements OnInit {
 
+  shoppingCartList:any;
+
   constructor(
     private Router: Router,
     private message: NzMessageService,
+    private HttpClient: HttpClient,
   ) { }
 
   ngOnInit() {
     if (window.localStorage.getItem('user_name') == null) {
       this.Router.navigate(['/home']);
     }
+    this.showShoppingCartList();
+  }
+
+  showShoppingCartList(){
+    this.HttpClient.get('http://localhost:8080/shoppingcar/list/')
+      .toPromise().then(data => {
+        this.shoppingCartList = data;
+        console.log(this.shoppingCartList);
+      }).catch(err => {
+        console.log(err)
+      })
   }
 
   gotoshop() {
@@ -36,45 +51,5 @@ export class ShoppingcartComponent implements OnInit {
     console.log(id);
     this.message.info(id + "商品" + number + "件，已加入购物车！")
   }
-
-  listOfData = [
-    {
-      key: '1',
-      name: 'John Brown',
-      img: "https://productview1.fanobject.com/0027/6129/00276129_00.jpg?imwidth=600",
-      team: 'Mercedes',
-      price: 280,
-      num: 1,
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      team: 'Mercedes',
-      price: 280,
-      num: 1,
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      team: 'Mercedes',
-      price: 280,
-      num: 2,
-    },
-    {
-      key: '4',
-      name: 'Joe Black',
-      team: 'Mercedes',
-      price: 280,
-      num: 2,
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      team: 'Mercedes',
-      price: 280,
-      num: 2,
-    },
-
-  ];
 
 }
