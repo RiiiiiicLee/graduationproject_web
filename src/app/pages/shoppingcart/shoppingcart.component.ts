@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ShoppingcartComponent implements OnInit {
 
-  shoppingCartList:any;
+  shoppingCartList: any;
 
   constructor(
     private Router: Router,
@@ -25,7 +25,7 @@ export class ShoppingcartComponent implements OnInit {
     this.showShoppingCartList();
   }
 
-  showShoppingCartList(){
+  showShoppingCartList() {
     this.HttpClient.get('http://localhost:8080/shoppingcar/list/')
       .toPromise().then(data => {
         this.shoppingCartList = data;
@@ -35,11 +35,27 @@ export class ShoppingcartComponent implements OnInit {
       })
   }
 
+  updateGoodsNum(shoppingcarid:number,goodsnum:number){
+    const formData = {
+      shoppingcarid: shoppingcarid,
+      goodsnum: goodsnum,
+    }
+    this.HttpClient.post('http://localhost:8080/shoppingcar/edit', formData).toPromise().then((data: any) => {
+      if (data == 1) {
+        console.log("商品数量已改变");
+      }
+    }).catch(err => {
+      console.log(err)
+      window.alert("商品数量更改失败！")
+    }
+    )
+  }
+
   gotoshop() {
     this.Router.navigate(['/home/shop']);
   }
 
-  gotoOrder(){
+  gotoOrder() {
     this.Router.navigate(['/home/order']);
   }
 
@@ -47,9 +63,20 @@ export class ShoppingcartComponent implements OnInit {
     this.Router.navigate(['/home/confirm']);
   }
 
-  addToShoppingCart(id: string, number: number) {
-    console.log(id);
-    this.message.info(id + "商品" + number + "件，已加入购物车！")
+  deleteShoppingCart(shoppingcarid: string) {
+    this.HttpClient.post('http://localhost:8080/shoppingcar/delete', shoppingcarid).toPromise().then((data: any) => {
+      if (data == 1) {
+        this.message.info("删除成功");
+        location.reload();
+      }
+      if (data == 10) {
+        this.message.info("此商品已被删除");
+        location.reload();
+      }
+    }).catch(err => {
+      console.log(err)
+      window.alert("删除失败！")
+    }
+    )
   }
-
 }

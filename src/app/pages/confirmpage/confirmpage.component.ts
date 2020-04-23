@@ -84,7 +84,18 @@ export class ConfirmpageComponent implements OnInit {
   }
 
   addAddress(){
-    console.log(this.addressData);
+    this.HttpClient.post('http://localhost:8080/address/add',this.addressData)
+    .toPromise()
+    .then(data=>{
+      console.log(data);
+      
+      window.alert("地址已更新");
+      location.reload();
+    })
+    .catch(err=>{
+      console.log(err)
+      window.alert("更新失败！")
+    })
   }
 
 }

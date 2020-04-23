@@ -36,10 +36,10 @@
           <td>{{ data.goodsprice }}</td>
           <td>
             <nz-input-number [(ngModel)]="data.goodsnum" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1" [nzMin]="99"
-              [nzStep]="1"></nz-input-number>
+              [nzStep]="1" (ngModelChange)="updateGoodsNum(data.shoppingcarid,data.goodsnum)"></nz-input-number>
           </td>
           <td>
-            <button nz-button (click)="addToShoppingCart(data.key,data.num)" nzType="default" nzShape="round"><i nz-icon
+            <button nz-button (click)="deleteShoppingCart(data.shoppingcarid)" nzType="default" nzShape="round"><i nz-icon
                 nzType="minus" nzTheme="outline"></i>delete</button>
           </td>
         </tr>

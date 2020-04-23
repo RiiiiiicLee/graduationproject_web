@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ShopComponent implements OnInit {
 
-  goodsList: any
+  goodsList: any;
 
   constructor(
     private Router: Router,
@@ -49,9 +49,23 @@ export class ShopComponent implements OnInit {
     this.Router.navigate(['/home'])
   }
 
-  addToShoppingCart(id: string, number: number) {
-    console.log(id+number);
-    this.message.info(id + "商品" + number + "件，已加入购物车！")
+  addToShoppingCart(goodsId, goodsNum) {
+    const formData = {
+      goodsid: goodsId,
+      goodsnum: goodsNum,
+    }
+    this.HttpClient.post('http://localhost:8080/shoppingcar/add', formData).toPromise().then((data: any) => {
+      if (data == 1) {
+        this.message.info("商品已成功添加至购物车");
+      }
+      if (data == 10) {
+        this.message.info("购物车商品数量已增加");
+      }
+    }).catch(err => {
+      console.log(err)
+      window.alert("添加失败！")
+    }
+    )
   }
 
 }
