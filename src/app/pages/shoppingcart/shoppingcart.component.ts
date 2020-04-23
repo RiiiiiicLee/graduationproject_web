@@ -35,7 +35,7 @@ export class ShoppingcartComponent implements OnInit {
       })
   }
 
-  updateGoodsNum(shoppingcarid:number,goodsnum:number){
+  updateGoodsNum(shoppingcarid: number, goodsnum: number) {
     const formData = {
       shoppingcarid: shoppingcarid,
       goodsnum: goodsnum,
@@ -60,7 +60,11 @@ export class ShoppingcartComponent implements OnInit {
   }
 
   gotoConfirm() {
-    this.Router.navigate(['/home/confirm']);
+    if (this.shoppingCartList == "") {
+      this.message.warning("请添加商品");
+    } else {
+      this.Router.navigate(['/home/confirm']);
+    }
   }
 
   deleteShoppingCart(shoppingcarid: string) {

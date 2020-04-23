@@ -29,7 +29,7 @@
         <tr *ngFor="let goods of basicTable.data">
           <td>{{ goods.goodsname }}</td>
           <td>
-            <img src="https://productview1.fanobject.com/0027/6184/00276184_00.jpg?imwidth=250" alt="{{goods.goodsname}}"
+            <img src="{{goods.goodsimg}}" alt="{{goods.goodsname}}"
               height="5%" width="5%">
           </td>
           <td>{{ goods.sponsor }}</td>

@@ -23,6 +23,8 @@
                             收货人：{{address.addressname}}
                             <nz-divider nzType="vertical"></nz-divider>
                             联系人电话：{{address.tel}}
+                            <nz-divider nzType="vertical"></nz-divider>
+                            <button nz-button nzType="default" (click)="deleteAddress(address.addressid)">Delete</button>
                         </label>
                     </div>
                     <label nz-radio [ngStyle]="style" nzValue="add">
@@ -98,24 +100,25 @@
                 <tr *ngFor="let data of basicTable.data">
                     <td>{{ data.goodsname }}</td>
                     <td>
-                        <img src="https://productview1.fanobject.com/0027/6184/00276184_00.jpg?imwidth=250"
-                            alt="{{data.name}}" height="5%" width="5%">
+                        <img src="{{data.goodsimg}}" alt="{{data.name}}" height="5%" width="5%">
                     </td>
                     <td>{{ data.sponsor }}</td>
                     <td>{{ data.goodsprice }}</td>
                     <td>
                         <nz-input-number [(ngModel)]="data.goodsnum" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1"
-                            [nzMin]="99" [nzStep]="1"></nz-input-number>
+                            [nzMin]="99" [nzStep]="1"
+                            (ngModelChange)="updateGoodsNum(data.shoppingcarid,data.goodsnum)"></nz-input-number>
                     </td>
                     <td>
-                        <button nz-button (click)="addToShoppingCart(data.key,data.num)" nzType="default"
+                        <button nz-button (click)="deleteShoppingCart(data.shoppingcarid)" nzType="default"
                             nzShape="round"><i nz-icon nzType="minus" nzTheme="outline"></i>delete</button>
                     </td>
                 </tr>
             </tbody>
         </nz-table>
+        <nz-divider></nz-divider>
         <div class="confirm" style="margin-left: 40%;width: 20%;">
-            <button nz-button nzType="primary" (click)="gotoResult()" nzBlock nzShape="round">
+            <button nz-button nzType="primary" (click)="gotoConfirm()" nzBlock nzShape="round">
                 <i nz-icon nzType="shopping" nzTheme="outline"></i>Confirm</button>
         </div>
     </div>

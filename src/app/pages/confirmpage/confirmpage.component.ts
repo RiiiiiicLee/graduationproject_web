@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import { NzMessageService } from 'ng-zorro-antd';
+import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ConfirmpageComponent implements OnInit {
 
   visible = false;
-  radioValue = '1';
+  radioValue:number;
 
   style = {
     display: 'block',
@@ -32,6 +32,7 @@ export class ConfirmpageComponent implements OnInit {
     private Router: Router,
     private message: NzMessageService,
     private HttpClient: HttpClient,
+    private modal: NzModalService,
   ) { }
 
   ngOnInit() {
@@ -74,21 +75,11 @@ export class ConfirmpageComponent implements OnInit {
     this.Router.navigate(['/home/shoppingcart']);
   }
 
-  gotoResult() {
-    this.Router.navigate(['/home/result']);
-  }
-
-  addToShoppingCart(id: string, number: number) {
-    console.log(id);
-    this.message.info(id + "商品" + number + "件，已加入购物车！")
-  }
-
   addAddress(){
     this.HttpClient.post('http://localhost:8080/address/add',this.addressData)
     .toPromise()
     .then(data=>{
       console.log(data);
-      
       window.alert("地址已更新");
       location.reload();
     })
@@ -98,4 +89,59 @@ export class ConfirmpageComponent implements OnInit {
     })
   }
 
+  updateGoodsNum(shoppingcarid:number,goodsnum:number){
+    const formData = {
+      shoppingcarid: shoppingcarid,
+      goodsnum: goodsnum,
+    }
+    this.HttpClient.post('http://localhost:8080/shoppingcar/edit', formData).toPromise().then((data: any) => {
+      if (data == 1) {
+        console.log("商品数量已改变");
+      }
+    }).catch(err => {
+      console.log(err)
+      window.alert("商品数量更改失败！")
+    }
+    )
+  }
+
+  deleteShoppingCart(shoppingcarid: string) {
+    this.HttpClient.post('http://localhost:8080/shoppingcar/delete', shoppingcarid).toPromise().then((data: any) => {
+      if (data == 1) {
+        this.message.info("删除成功");
+        location.reload();
+      }
+      if (data == 10) {
+        this.message.info("此商品已被删除");
+        location.reload();
+      }
+    }).catch(err => {
+      console.log(err)
+      window.alert("删除失败！")
+    }
+    )
+  }
+
+  deleteAddress(addressid){
+    this.HttpClient.post('http://localhost:8080/address/delete', addressid).toPromise().then((data: any) => {
+      if (data == 1) {
+        location.reload();
+      }
+    }).catch(err => {
+      console.log(err)
+      window.alert("删除失败！")
+    }
+    )
+  }
+
+  gotoConfirm(){
+    if(this.radioValue==null){
+      this.modal.warning({
+        nzTitle: '请选择收货地址',
+       nzContent: 'please select your address'
+      });
+    }else{
+      this.Router.navigate(['/home/result']);
+    }
+  }
 }
