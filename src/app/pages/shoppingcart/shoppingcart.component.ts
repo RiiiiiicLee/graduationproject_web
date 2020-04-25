@@ -12,6 +12,8 @@ export class ShoppingcartComponent implements OnInit {
 
   shoppingCartList: any;
 
+  sum:number=0;
+
   constructor(
     private Router: Router,
     private message: NzMessageService,
@@ -27,9 +29,10 @@ export class ShoppingcartComponent implements OnInit {
 
   showShoppingCartList() {
     this.HttpClient.get('http://localhost:8080/shoppingcar/list/')
-      .toPromise().then(data => {
+      .toPromise().then((data) => {
         this.shoppingCartList = data;
         console.log(this.shoppingCartList);
+        this.showSum();
       }).catch(err => {
         console.log(err)
       })
@@ -49,6 +52,17 @@ export class ShoppingcartComponent implements OnInit {
       window.alert("商品数量更改失败！")
     }
     )
+    this.showSum();
+  }
+
+  showSum(){
+    this.sum=0;
+    if(!this.shoppingCartList){
+      return;
+    }
+    this.shoppingCartList.forEach((val,index,shoppingcar) => {
+      this.sum=this.sum+this.shoppingCartList[index]["goodsprice"] * (this.shoppingCartList[index]["goodsnum"]-this.shoppingCartList[index]["discount"]);
+    });
   }
 
   gotoshop() {

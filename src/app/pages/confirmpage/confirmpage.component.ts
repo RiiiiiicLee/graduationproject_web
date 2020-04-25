@@ -12,6 +12,7 @@ export class ConfirmpageComponent implements OnInit {
 
   visible = false;
   radioValue:number;
+  sum:number=0;
 
   style = {
     display: 'block',
@@ -58,9 +59,20 @@ export class ConfirmpageComponent implements OnInit {
       .toPromise().then(data => {
         this.shoppingCartList = data;
         console.log(this.shoppingCartList);
+        this.showSum();
       }).catch(err => {
         console.log(err)
       })
+  }
+
+  showSum(){
+    this.sum=0;
+    if(!this.shoppingCartList){
+      return;
+    }
+    this.shoppingCartList.forEach((val,index,shoppingcar) => {
+      this.sum=this.sum+this.shoppingCartList[index]["goodsprice"] * (this.shoppingCartList[index]["goodsnum"]-this.shoppingCartList[index]["discount"]);
+    });
   }
 
   open(): void {
@@ -103,6 +115,7 @@ export class ConfirmpageComponent implements OnInit {
       window.alert("商品数量更改失败！")
     }
     )
+    this.showSum();
   }
 
   deleteShoppingCart(shoppingcarid: string) {

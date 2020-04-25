@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NzMessageService } from 'ng-zorro-antd';
 import { HttpClient } from '@angular/common/http'
 import { DatePipe } from '@angular/common';
+import { NzModalService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-orderdetail',
@@ -11,20 +11,21 @@ import { DatePipe } from '@angular/common';
 })
 export class OrderdetailComponent implements OnInit {
 
-  orderList:any;
+  sum:number=0;
+  orderList: any;
 
-  orderid=this.activatedRoute.snapshot.params.orderid;
-  ordername="";
-  ordertel="";
-  orderTime:Date;
-  orderAddress="";
+  orderid = this.activatedRoute.snapshot.params.orderid;
+  ordername = "";
+  ordertel = "";
+  orderTime: Date;
+  orderAddress = "";
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private Router: Router,
-    private message: NzMessageService,
+    private modal: NzModalService,
     private HttpClient: HttpClient,
-    public datepipe:DatePipe
+    public datepipe: DatePipe
   ) { }
 
   ngOnInit() {
@@ -34,43 +35,59 @@ export class OrderdetailComponent implements OnInit {
     this.showOrderDetail();
   }
 
-  showOrderDetail(){
-    this.HttpClient.post('http://localhost:8080/salesrecord/showList',this.orderid)
-    .toPromise()
-    .then(data=>{
-      this.orderList=data;
-      this.ordername=data[0]["addressname"];
-      this.orderAddress=data[0]["addressinfo"];
-      this.ordertel=data[0]["tel"];
-      this.orderTime=data[0]["createtime"];
-      console.log(this.orderList);
-    })
-    .catch(err=>{
-      console.log(err)
-      window.alert("获取订单详情失败！")
-    })
+  showOrderDetail() {
+    this.HttpClient.post('http://localhost:8080/salesrecord/showList', this.orderid)
+      .toPromise()
+      .then(data => {
+        this.orderList = data;
+        this.ordername = data[0]["addressname"];
+        this.orderAddress = data[0]["addressinfo"];
+        this.ordertel = data[0]["tel"];
+        this.orderTime = data[0]["createtime"];
+        console.log(this.orderList);
+        this.showSum();
+      })
+      .catch(err => {
+        console.log(err)
+        window.alert("获取订单详情失败！")
+      })
+  }
+
+  showSum(){
+    this.sum=0;
+    if(!this.orderList){
+      return;
+    }
+    this.orderList.forEach((val,index,shoppingcar) => {
+      this.sum=this.sum+this.orderList[index]["goodsprice"] * (this.orderList[index]["goodsnum"]-this.orderList[index]["discount"]);
+    });
   }
 
   onBack() {
     this.Router.navigate(['/home/order'])
   }
 
-  visible = false;
-
-  open(): void {
-    this.visible = true;
+  deleteOrder(): void {
+    this.modal.confirm(
+      {
+        nzTitle: '<i>Do you Want to delete this order?</i>',
+        nzOnOk: () => this.doDeleteOrder()
+      }
+    );
+    
   }
 
-  close(): void {
-    this.visible = false;
+  doDeleteOrder(){
+    this.HttpClient.post('http://localhost:8080/salesrecord/userdelete', this.orderid).toPromise().then((data: any) => {
+      if (data == 0) {
+        window.alert("失败")
+      } else {
+        this.Router.navigate(['/home/order']);
+      }
+    }).catch(err => {
+      console.log(err)
+      window.alert("删除失败！")
+    }
+    )
   }
-
-  deleteOrder():void{
-    console.log("deleted no."+this.orderid)
-  }
-
-  editOrder():void{
-    console.log(this.orderAddress)
-  }
-
 }
