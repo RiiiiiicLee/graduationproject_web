@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd';
+import { HttpClient } from '@angular/common/http'
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-orderdetail',
@@ -9,59 +11,49 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class OrderdetailComponent implements OnInit {
 
-  orderid = this.activatedRoute.snapshot.params.orderid;
+  orderList:any;
+
+  orderid=this.activatedRoute.snapshot.params.orderid;
+  ordername="";
+  ordertel="";
+  orderTime:Date;
+  orderAddress="";
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private Router: Router,
     private message: NzMessageService,
+    private HttpClient: HttpClient,
+    public datepipe:DatePipe
   ) { }
 
   ngOnInit() {
     if (window.localStorage.getItem('user_name') == null) {
       this.Router.navigate(['/home']);
     }
-    console.log(this.orderid);
+    this.showOrderDetail();
+  }
+
+  showOrderDetail(){
+    this.HttpClient.post('http://localhost:8080/salesrecord/showList',this.orderid)
+    .toPromise()
+    .then(data=>{
+      this.orderList=data;
+      this.ordername=data[0]["addressname"];
+      this.orderAddress=data[0]["addressinfo"];
+      this.ordertel=data[0]["tel"];
+      this.orderTime=data[0]["createtime"];
+      console.log(this.orderList);
+    })
+    .catch(err=>{
+      console.log(err)
+      window.alert("获取订单详情失败！")
+    })
   }
 
   onBack() {
     this.Router.navigate(['/home/order'])
   }
-
-  order = 
-    {
-      orderNo: this.orderid,
-      name: '李四',
-      tel: '123456789',
-      creatTime: '2020-03-29 15:34:10',
-      address: '上海市hgfdhgfd',
-    }
-  
-
-  listOfData = [
-    {
-      key: '1',
-      name: 'John Brown',
-      img: "https://productview1.fanobject.com/0027/6129/00276129_00.jpg?imwidth=600",
-      team: 'Mercedes',
-      price: 280,
-      num: 1,
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      team: 'Mercedes',
-      price: 280,
-      num: 1,
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      team: 'Mercedes',
-      price: 280,
-      num: 2,
-    }
-  ];
 
   visible = false;
 
@@ -78,7 +70,7 @@ export class OrderdetailComponent implements OnInit {
   }
 
   editOrder():void{
-    console.log(this.order)
+    console.log(this.orderAddress)
   }
 
 }

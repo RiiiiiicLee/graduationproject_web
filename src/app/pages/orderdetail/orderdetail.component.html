@@ -4,21 +4,21 @@
 <div class="wrap">
     <div style="background:rgb(248, 247, 247);padding:30px;">
         <nz-descriptions nzTitle="Info" nzBordered [nzColumn]='2'>
-            <nz-descriptions-item nzTitle="OrderNo">{{order.orderNo}}</nz-descriptions-item>
-            <nz-descriptions-item nzTitle="Name">{{order.name}}</nz-descriptions-item>
-            <nz-descriptions-item nzTitle="Tel">{{order.tel}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="OrderNo">{{orderid}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Name">{{ordername}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Tel">{{ordertel}}</nz-descriptions-item>
             <nz-descriptions-item nzTitle="Order Time">
-                {{order.creatTime}}
+                <nz-date-picker nzShowTime [(ngModel)]="orderTime" name="ordertime" nzDisabled></nz-date-picker>
             </nz-descriptions-item>
             <nz-descriptions-item nzTitle="Address" [nzSpan]="2">
-                {{order.address}}
+                {{orderAddress}}
             </nz-descriptions-item>
         </nz-descriptions>
         <nz-divider></nz-divider>
-        <nz-table #basicTable [nzData]="listOfData">
+        <nz-table #basicTable [nzData]="orderList">
             <thead>
                 <tr>
-                    <th id="name">OrderNo.</th>
+                    <th id="name">GoodsName</th>
                     <th id="team">Image</th>
                     <th id="image">Team</th>
                     <th id="price">Price</th>
@@ -27,16 +27,15 @@
             </thead>
             <tbody>
                 <tr *ngFor="let data of basicTable.data">
-                    <td>{{ data.name }}</td>
+                    <td><h1>{{data.goodsname}}</h1></td>
                     <td>
-                        <img src="https://productview1.fanobject.com/0027/6184/00276184_00.jpg?imwidth=250"
-                            alt="{{data.name}}" height="5%" width="5%">
+                        <img src="{{data.goodsimg}}" alt="{{data.goodsname}}" height="5%" width="5%">
                     </td>
-                    <td>{{ data.team }}</td>
-                    <td>{{ data.price }}</td>
+                    <td>{{ data.sponsor }}</td>
+                    <td>{{ data.goodsprice }}</td>
                     <td>
-                        <nz-input-number [(ngModel)]="data.num" [nzPrecision]="0" [nzDisabled]="true"
-                            nzPrecisionMode="cut" [nzMin]="1" [nzMin]="99" [nzStep]="1"></nz-input-number>
+                        <nz-input-number [(ngModel)]="data.goodsnum" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1"
+                            [nzMin]="99" [nzStep]="1" [nzDisabled]="true"></nz-input-number>
                     </td>
                 </tr>
             </tbody>
@@ -51,7 +50,7 @@
                         <nz-form-item>
                             <nz-form-label>OrderNo</nz-form-label>
                             <nz-form-control>
-                                <input nz-input name="orderno" [(ngModel)]=order.orderNo readonly="readonly">
+                                <input nz-input name="orderno" [(ngModel)]=orderid readonly="readonly">
                             </nz-form-control>
                         </nz-form-item>
                     </div>
@@ -59,7 +58,7 @@
                         <nz-form-item>
                             <nz-form-label>Name</nz-form-label>
                             <nz-form-control>
-                                <input nz-input name="name" [(ngModel)]=order.name>
+                                <input nz-input name="name" [(ngModel)]=ordername>
                             </nz-form-control>
                         </nz-form-item>
                     </div>
@@ -69,7 +68,7 @@
                         <nz-form-item>
                             <nz-form-label>Tel</nz-form-label>
                             <nz-form-control>
-                                <input nz-input name="tel" [(ngModel)]=order.tel>
+                                <input nz-input name="tel" [(ngModel)]=ordertel>
                             </nz-form-control>
                         </nz-form-item>
                     </div>
@@ -77,7 +76,7 @@
                         <nz-form-item>
                             <nz-form-label>Order Time</nz-form-label>
                             <nz-form-control>
-                                <input nz-input name="ordertime" [(ngModel)]=order.creatTime readonly="readonly">
+                                <input nz-input name="ordertime" [(ngModel)]=orderTime readonly="readonly">
                             </nz-form-control>
                         </nz-form-item>
                     </div>
@@ -89,7 +88,7 @@
                             <nz-form-control>
                                 <textarea nz-input placeholder="please enter address"
                                     [nzAutosize]="{ minRows: 2, maxRows: 2 }" name="address"
-                                    [(ngModel)]=order.address></textarea>
+                                    [(ngModel)]=orderAddress></textarea>
                             </nz-form-control>
                         </nz-form-item>
                     </div>

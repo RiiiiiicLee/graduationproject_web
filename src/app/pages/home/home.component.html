@@ -9,7 +9,7 @@
     </div>
     <nz-divider></nz-divider>
     <div class="notificationwrap">
-        <nz-page-header class="site-page-header" nzTitle="新闻"></nz-page-header>
+        <nz-page-header class="site-page-header" nzTitle="新闻 & 公告"></nz-page-header>
         <nz-collapse [nzBordered]="false" nzAccordion>
             <nz-collapse-panel *ngFor="let notification of notificationList" [nzHeader]="notification.notiname" [nzActive]="notification.active">
               <p>{{ notification.noticontent }}</p>

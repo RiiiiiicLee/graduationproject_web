@@ -1,4 +1,4 @@
-<nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Order" nzSubtitle="购物订坕">
+<nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Order" nzSubtitle="购物订单">
 </nz-page-header>
 
 <div class="wrap">
@@ -16,7 +16,8 @@
             </thead>
             <tbody>
                 <tr *ngFor="let data of basicTable.data">
-                    <td>{{data.orderid}}</td>
+                    <td *ngIf="0 != data.orderid"><h1>{{data.orderid}}</h1></td>
+                    <td *ngIf="0==data.orderid"></td>
                     <td>
                         <img src="{{data.goodsimg}}"
                             alt="{{data.goodsname}}" height="5%" width="5%">
@@ -27,11 +28,12 @@
                         <nz-input-number [(ngModel)]="data.goodsnum" [nzPrecision]="0" nzPrecisionMode="cut" [nzMin]="1"
                             [nzMin]="99" [nzStep]="1" [nzDisabled]="true"></nz-input-number>
                     </td>
-                    <td>
+                    <td *ngIf="0!=data.orderid">
                         <button nz-button [routerLink]="['/home/orderdetail',data.orderid]"
                             routerLinkActive="router-link-active" nzType="default" [nzSize]="size" nzShape="round">Check
                             Detail <i nz-icon nzType="right" nzTheme="outline"></i></button>
                     </td>
+                    <td *ngIf="0 == data.orderid"></td>
                 </tr>
             </tbody>
         </nz-table>

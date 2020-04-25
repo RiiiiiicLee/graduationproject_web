@@ -12,8 +12,6 @@ export class OrderComponent implements OnInit {
 
   orderList:any;
 
-  orderID:number;
-
   constructor(
     private Router: Router,
     private HttpClient: HttpClient,
@@ -38,13 +36,6 @@ export class OrderComponent implements OnInit {
       }).catch(err => {
         console.log(err)
       })
-  }
-
-  showOrderID(orderid:number){
-    if(this.orderID!=orderid){
-      this.orderID=orderid;
-    }
-    return orderid;
   }
   
 }
