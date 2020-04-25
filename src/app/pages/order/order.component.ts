@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NzMessageService } from 'ng-zorro-antd';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -10,43 +10,41 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class OrderComponent implements OnInit {
 
+  orderList:any;
+
+  orderID:number;
+
   constructor(
     private Router: Router,
-    private message: NzMessageService,
+    private HttpClient: HttpClient,
   ) { }
 
   ngOnInit() {
     if (window.localStorage.getItem('user_name') == null) {
       this.Router.navigate(['/home']);
     }
+    this.showOrderList();
   }
 
   onBack() {
     this.Router.navigate(['/home/shop'])
   }
 
-  listOfData = [
-    {
-      key: '1',
-      name: 'John Brown',
-      img: "https://productview1.fanobject.com/0027/6129/00276129_00.jpg?imwidth=600",
-      team: 'Mercedes',
-      price: 280,
-      num: 1,
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      team: 'Mercedes',
-      price: 280,
-      num: 1,
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      team: 'Mercedes',
-      price: 280,
-      num: 2,
+  showOrderList() {
+    this.HttpClient.get('http://localhost:8080/salesrecord/list/')
+      .toPromise().then(data => {
+        this.orderList = data;
+        console.log(this.orderList);
+      }).catch(err => {
+        console.log(err)
+      })
+  }
+
+  showOrderID(orderid:number){
+    if(this.orderID!=orderid){
+      this.orderID=orderid;
     }
-  ];
+    return orderid;
+  }
+  
 }
