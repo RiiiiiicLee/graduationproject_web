@@ -140,8 +140,25 @@ export class ConfirmpageComponent implements OnInit {
         nzTitle: '请选择收货地址',
        nzContent: 'please select your address'
       });
+    }else if(this.shoppingCartList == ""){
+      this.message.warning("请添加商品");
     }else{
-      this.Router.navigate(['/home/result']);
+      this.confirmOrder();
+      
     }
+  }
+
+  confirmOrder(){
+    this.HttpClient.post('http://localhost:8080/salesrecord/confirm', this.radioValue).toPromise().then((data: any) => {
+      if (data == 0) {
+        window.alert("失败")
+      }else{
+        this.Router.navigate(['/home/result']);
+      }
+    }).catch(err => {
+      console.log(err)
+      window.alert("删除失败！")
+    }
+    )
   }
 }
