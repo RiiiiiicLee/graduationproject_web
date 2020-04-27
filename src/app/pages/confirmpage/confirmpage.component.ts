@@ -11,8 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class ConfirmpageComponent implements OnInit {
 
   visible = false;
-  radioValue:number;
-  sum:number=0;
+  radioValue: number;
+  sum: number = 0;
 
   style = {
     display: 'block',
@@ -20,11 +20,11 @@ export class ConfirmpageComponent implements OnInit {
     lineHeight: '10px',
   };
 
-  addressList:any;
-  shoppingCartList:any;
+  addressList: any;
+  shoppingCartList: any;
 
-  addressData :any= {
-    addressinfo:'',
+  addressData: any = {
+    addressinfo: '',
     addressname: '',
     tel: '',
   }
@@ -44,7 +44,7 @@ export class ConfirmpageComponent implements OnInit {
     this.showShoppingCartList();
   }
 
-  showAddressList(){
+  showAddressList() {
     this.HttpClient.get('http://localhost:8080/address/list/')
       .toPromise().then(data => {
         this.addressList = data;
@@ -54,7 +54,7 @@ export class ConfirmpageComponent implements OnInit {
       })
   }
 
-  showShoppingCartList(){
+  showShoppingCartList() {
     this.HttpClient.get('http://localhost:8080/shoppingcar/list/')
       .toPromise().then(data => {
         this.shoppingCartList = data;
@@ -65,13 +65,13 @@ export class ConfirmpageComponent implements OnInit {
       })
   }
 
-  showSum(){
-    this.sum=0;
-    if(!this.shoppingCartList){
+  showSum() {
+    this.sum = 0;
+    if (!this.shoppingCartList) {
       return;
     }
-    this.shoppingCartList.forEach((val,index,shoppingcar) => {
-      this.sum=this.sum+this.shoppingCartList[index]["goodsprice"] * (this.shoppingCartList[index]["goodsnum"]-this.shoppingCartList[index]["discount"]);
+    this.shoppingCartList.forEach((val, index, shoppingcar) => {
+      this.sum = this.sum + this.shoppingCartList[index]["goodsprice"] * (this.shoppingCartList[index]["goodsnum"] - this.shoppingCartList[index]["discount"]);
     });
   }
 
@@ -87,21 +87,21 @@ export class ConfirmpageComponent implements OnInit {
     this.Router.navigate(['/home/shoppingcart']);
   }
 
-  addAddress(){
-    this.HttpClient.post('http://localhost:8080/address/add',this.addressData)
-    .toPromise()
-    .then(data=>{
-      console.log(data);
-      window.alert("地址已更新");
-      location.reload();
-    })
-    .catch(err=>{
-      console.log(err)
-      window.alert("更新失败！")
-    })
+  addAddress() {
+    this.HttpClient.post('http://localhost:8080/address/add', this.addressData)
+      .toPromise()
+      .then(data => {
+        console.log(data);
+        window.alert("地址已更新");
+        location.reload();
+      })
+      .catch(err => {
+        console.log(err)
+        window.alert("更新失败！")
+      })
   }
 
-  updateGoodsNum(shoppingcarid:number,goodsnum:number){
+  updateGoodsNum(shoppingcarid: number, goodsnum: number) {
     const formData = {
       shoppingcarid: shoppingcarid,
       goodsnum: goodsnum,
@@ -135,7 +135,7 @@ export class ConfirmpageComponent implements OnInit {
     )
   }
 
-  deleteAddress(addressid){
+  deleteAddress(addressid) {
     this.HttpClient.post('http://localhost:8080/address/delete', addressid).toPromise().then((data: any) => {
       if (data == 1) {
         location.reload();
@@ -147,25 +147,25 @@ export class ConfirmpageComponent implements OnInit {
     )
   }
 
-  gotoConfirm(){
-    if(this.radioValue==null){
+  gotoConfirm() {
+    if (this.radioValue == null) {
       this.modal.warning({
         nzTitle: '请选择收货地址',
-       nzContent: 'please select your address'
+        nzContent: 'please select your address'
       });
-    }else if(this.shoppingCartList == ""){
+    } else if (this.shoppingCartList == "") {
       this.message.warning("请添加商品");
-    }else{
+    } else {
       this.confirmOrder();
-      
+
     }
   }
 
-  confirmOrder(){
+  confirmOrder() {
     this.HttpClient.post('http://localhost:8080/salesrecord/confirm', this.radioValue).toPromise().then((data: any) => {
       if (data == 0) {
         window.alert("失败")
-      }else{
+      } else {
         this.Router.navigate(['/home/result']);
       }
     }).catch(err => {
