@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgZorroAntdModule, NZ_I18N, zh_CN, NzFormModule } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NZ_I18N, zh_CN, NzFormModule, NzListModule } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +25,8 @@ import { OrderComponent } from './pages/order/order.component';
 import { ResultpageComponent } from './pages/resultpage/resultpage.component';
 import { OrderdetailComponent } from './pages/orderdetail/orderdetail.component';
 import { GlobalHttpInterceptor } from './global.interceptor';
+import { ForumComponent } from './pages/forum/forum.component';
+import { ForumpageComponent } from './pages/forumpage/forumpage.component';
 
 
 registerLocaleData(zh);
@@ -45,7 +47,9 @@ registerLocaleData(zh);
     ConfirmpageComponent,
     OrderComponent,
     ResultpageComponent,
-    OrderdetailComponent
+    OrderdetailComponent,
+    ForumComponent,
+    ForumpageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    NzFormModule
+    NzFormModule,
+    NzListModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN },
   {

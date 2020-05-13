@@ -14,6 +14,8 @@ import { ConfirmpageComponent } from './pages/confirmpage/confirmpage.component'
 import { OrderComponent } from './pages/order/order.component';
 import { ResultpageComponent } from './pages/resultpage/resultpage.component';
 import { OrderdetailComponent } from './pages/orderdetail/orderdetail.component';
+import { ForumComponent } from './pages/forum/forum.component';
+import { ForumpageComponent } from './pages/forumpage/forumpage.component';
 
 
 const routes: Routes = [
@@ -81,6 +83,14 @@ const routes: Routes = [
       {
         path:'result',
         component: ResultpageComponent
+      },
+      {
+        path:'forum',
+        component: ForumComponent
+      },
+      {
+        path:'forumpage/:forumid',
+        component: ForumpageComponent
       }
     ]
   },

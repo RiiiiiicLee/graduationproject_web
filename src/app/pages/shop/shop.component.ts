@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ShopComponent implements OnInit {
 
   goodsList: any;
+  search: any;
 
   constructor(
     private Router: Router,
@@ -47,6 +48,31 @@ export class ShopComponent implements OnInit {
 
   onBack() {
     this.Router.navigate(['/home'])
+  }
+
+  searchGoods(search){
+    if(search!=""){
+      this.HttpClient.post('http://localhost:8080/goods/search',search)
+      .toPromise().then(data => {
+        this.goodsList = data;
+        this.goodsList.forEach(goods => {
+          goods.goodsNum = 1;
+        });
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+    else{
+      this.HttpClient.get('http://localhost:8080/goods/list')
+      .toPromise().then(data => {
+        this.goodsList = data;
+        this.goodsList.forEach(goods => {
+          goods.goodsNum = 1;
+        });
+      }).catch(err => {
+        console.log(err)
+      })
+    }
   }
 
   addToShoppingCart(goodsId, goodsNum) {

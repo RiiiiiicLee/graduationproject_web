@@ -55,6 +55,17 @@ export class LayoutComponent implements OnInit {
     }
   }
 
+  gotoForum(){
+    if(window.localStorage.getItem('user_name')==null){
+      this.modal.info({
+        nzTitle: 'Please log in',
+        nzContent: '<p>请在登录后进入赛车周边购物商城</p>',
+      });
+    }else{
+      this.Router.navigate(['/home/forum']);
+    }
+  }
+
   nologin():boolean{
     if(this.username ==null){
       return true;

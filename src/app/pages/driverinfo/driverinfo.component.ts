@@ -30,6 +30,7 @@ export class DriverinfoComponent implements OnInit {
     this.modal.info({
       nzTitle: 'Alexander ALBON',
       nzContent: '<p>Born in London but racing under the flag of Thailand, Alexander Albon’s first word was in fact Italian – and that word was Ferrari.</p>',
+      nzFooter: 'red bull'
     });
   }
 
