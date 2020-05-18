@@ -1,0 +1,22 @@
+<div class="forum">
+    <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Forum" nzSubtitle="车迷论坛">
+    </nz-page-header>
+    <div class="modal-wrap">
+      <div style="background:rgb(248, 247, 247);padding:30px;">
+        <nz-comment>
+          <nz-avatar nz-comment-avatar [nzSize]="45" nzIcon="user" [nzSrc]=""></nz-avatar>
+          <nz-comment-content>
+            <nz-form-item>
+              <textarea [(ngModel)]="inputComment" nz-input rows="4"></textarea>
+            </nz-form-item>
+            <nz-form-item>
+              <button nz-button nzType="primary" [nzLoading]="submitting" [disabled]="!inputComment"
+                (click)="submitComment()">
+                Add Comment
+              </button>
+            </nz-form-item>
+          </nz-comment-content>
+        </nz-comment>
+      </div>
+    </div>
+  </div>

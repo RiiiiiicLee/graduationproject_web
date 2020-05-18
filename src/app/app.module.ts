@@ -27,6 +27,7 @@ import { OrderdetailComponent } from './pages/orderdetail/orderdetail.component'
 import { GlobalHttpInterceptor } from './global.interceptor';
 import { ForumComponent } from './pages/forum/forum.component';
 import { ForumpageComponent } from './pages/forumpage/forumpage.component';
+import { NewforumpageComponent } from './pages/newforumpage/newforumpage.component';
 
 
 registerLocaleData(zh);
@@ -49,7 +50,8 @@ registerLocaleData(zh);
     ResultpageComponent,
     OrderdetailComponent,
     ForumComponent,
-    ForumpageComponent
+    ForumpageComponent,
+    NewforumpageComponent
   ],
   imports: [
     BrowserModule,

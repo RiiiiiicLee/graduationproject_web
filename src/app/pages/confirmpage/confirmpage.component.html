@@ -39,16 +39,16 @@
                                     <div nz-col nzSpan="24">
                                         <nz-form-item>
                                             <nz-form-label>Name</nz-form-label>
-                                            <nz-form-control>
-                                                <input nz-input name="name" [(ngModel)]=addressData.addressname>
+                                            <nz-form-control nzHasFeedBack nzErrorTip="请输入正确的收件人">
+                                                <input nz-input name="name" [(ngModel)]=addressData.addressname required>
                                             </nz-form-control>
                                         </nz-form-item>
                                     </div>
                                     <div nz-col nzSpan="24">
                                         <nz-form-item>
                                             <nz-form-label>Tel</nz-form-label>
-                                            <nz-form-control>
-                                                <input nz-input name="tel" [(ngModel)]=addressData.tel>
+                                            <nz-form-control nzHasFeedBack nzErrorTip="请输入11位的电话号码">
+                                                <input nz-input name="tel" [(ngModel)]=addressData.tel required pattern="^\d{11}$">
                                             </nz-form-control>
                                         </nz-form-item>
                                     </div>
@@ -57,10 +57,10 @@
                                     <div nz-col nzSpan="24">
                                         <nz-form-item>
                                             <nz-form-label>Address</nz-form-label>
-                                            <nz-form-control>
+                                            <nz-form-control nzHasFeedBack nzErrorTip="请输入正确的地址">
                                                 <textarea nz-input placeholder="please enter address"
                                                     [nzAutosize]="{ minRows: 2, maxRows: 2 }" name="address"
-                                                    [(ngModel)]=addressData.addressinfo></textarea>
+                                                    [(ngModel)]=addressData.addressinfo required></textarea>
                                             </nz-form-control>
                                         </nz-form-item>
                                     </div>
@@ -69,7 +69,7 @@
                                 <div nz-row nzGutter="8">
                                     <nz-form-item>
                                         <nz-form-control>
-                                            <button nz-button nzType="primary" nzBlock>Confrim</button>
+                                            <button nz-button nzType="primary" nzBlock [disabled]="!addressData.addressname || !addressData.tel || !addressData.addressinfo">Confrim</button>
                                         </nz-form-control>
                                     </nz-form-item>
                                 </div>

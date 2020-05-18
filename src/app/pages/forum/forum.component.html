@@ -1,17 +1,20 @@
 <div class="forum">
     <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Forum" nzSubtitle="论坛">
+        <nz-page-header-extra class="site-page-header-button">
+            <button nz-button nzType="default" (click)="gotoNewForumPage()"><i nz-icon nzType="edit" nzTheme="outline"></i>new</button>
+        </nz-page-header-extra>
     </nz-page-header>
     <div class="modal-wrap">
         <div style="background:rgb(248, 247, 247);padding:30px;">
             <nz-list nzBordered nzHeader="车迷论坛">
-                <nz-list-item *ngFor="let item of data">
+                <nz-list-item *ngFor="let forum of forumList">
                     <nz-list-item-meta [nzTitle]="nzTitle"
                         nzAvatar="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589403324981&di=7751554fa3667bf6b2145815ad61f0ef&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F01%2F10%2F29%2F590365165e790_610.jpg"
-                        nzDescription="Click to check more">
+                        nzDescription="发帖人：{{forum.username}}">
                     </nz-list-item-meta>
                     <ng-template #nzTitle>
-                        <a [routerLink]="['/home/forumpage',item.forumid]" routerLinkActive="router-link-active"
-                            href="#">{{ item.content }}</a>
+                        <a [routerLink]="['/home/forumpage',forum.forumorderid]" routerLinkActive="router-link-active"
+                            href="#">{{ forum.content }}</a>
                     </ng-template>
                 </nz-list-item>   
             </nz-list>

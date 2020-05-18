@@ -1,38 +1,64 @@
 <div class="forum">
-    <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Forum" nzSubtitle="车迷论坛">
-    </nz-page-header>
-    <div class="modal-wrap">
-        <div style="background:rgb(248, 247, 247);padding:30px;">
-            <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
-                <ng-template #item let-item>
-                    <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.datetime">
-                        <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]=""></nz-avatar>
-                        <nz-comment-content>
-                            <p>{{ item.content }}</p>
-                        </nz-comment-content>
-                        <nz-comment-action>
-                            <i nz-tooltip nzTitle="Like" nz-icon nzType="like" [nzTheme]="item.likes > 0 ? 'twotone' : 'outline'" (click)="like(item.likes,item.count)"></i>
-                            <a class="count like">{{item.likes}}</a>
-                        </nz-comment-action>
-                        <nz-comment-action >
-                          <a (click)="reply(item.author)">Reply to</a>
-                        </nz-comment-action>
-                    </nz-comment>
-                </ng-template>
-            </nz-list>
-            <nz-comment>
-                <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]=""></nz-avatar>
-                <nz-comment-content>
-                  <nz-form-item>
-                    <textarea [(ngModel)]="inputComment" nz-input rows="4"></textarea>
-                  </nz-form-item>
-                  <nz-form-item>
-                    <button nz-button nzType="primary" [nzLoading]="submitting" [disabled]="!inputComment" (click)="submitComment()">
-                      Add Comment
-                    </button>
-                  </nz-form-item>
-                </nz-comment-content>
-              </nz-comment>
-        </div>
+  <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon nzTitle="Forum" nzSubtitle="车迷论坛">
+  </nz-page-header>
+  <div class="modal-wrap">
+    <div style="background:rgb(248, 247, 247);padding:30px;">
+      <nz-list [nzDataSource]="forumDetail" [nzRenderItem]="forum" [nzItemLayout]="'horizontal'">
+        <ng-template #forum let-forum>
+          <nz-comment [nzAuthor]="forum.username" [nzDatetime]="forum.createtime">
+            <nz-avatar nz-comment-avatar [nzSize]="64" nzText="{{forum.username}}"
+              style="color:#92b1c4; background-color:#fde3cf;"></nz-avatar>
+            <nz-comment-content>
+              <div class="notLocked" *ngIf="checkIsLocked(forum.islocked)">
+                <h2>{{ forum.content }}</h2>
+              </div>
+              <div class="Locked" *ngIf="!checkIsLocked(forum.islocked)">
+                <h3>！该回复被举报！</h3>
+              </div>
+            </nz-comment-content>
+            <div class="notlocked" *ngIf="checkIsLocked(forum.islocked)">
+              <nz-comment-action>
+                <i nz-tooltip nzTitle="Like" nz-icon nzType="like" [nzTheme]="forum.likes > 0 ? 'twotone' : 'outline'"
+                  (click)="like(forum.forumid,forum.forumfloorid,forum.likes,forum.count)"></i>
+                <a class="count like">{{forum.likes}}</a>
+              </nz-comment-action>
+              <nz-comment-action>
+                <nz-divider nzType="vertical"></nz-divider>
+              </nz-comment-action>
+              <nz-comment-action>
+                <a (click)="reply(forum.username)">Reply to</a>
+              </nz-comment-action>
+              <nz-comment-action>
+                <nz-divider nzType="vertical"></nz-divider>
+              </nz-comment-action>
+              <nz-comment-action>
+                <a (click)="report(forum.forumid,forum.islocked)">Report</a>
+              </nz-comment-action>
+              <nz-comment-action>
+                <nz-divider nzType="vertical"></nz-divider>
+              </nz-comment-action>
+              <nz-comment-action>
+                <a (click)="delete(forum.forumid)" *ngIf="tobeDeleted(forum.username,forum.forumfloorid)">delete</a>
+              </nz-comment-action>
+            </div>
+          </nz-comment>
+          <nz-divider nzText="第{{forum.forumfloor}}楼" nzOrientation="right"></nz-divider>
+        </ng-template>
+      </nz-list>
+      <nz-comment>
+        <nz-avatar nz-comment-avatar [nzSize]="45" nzIcon="user" [nzSrc]=""></nz-avatar>
+        <nz-comment-content>
+          <nz-form-item>
+            <textarea [(ngModel)]="inputComment" nz-input rows="4"></textarea>
+          </nz-form-item>
+          <nz-form-item>
+            <button nz-button nzType="primary" [nzLoading]="submitting" [disabled]="!inputComment"
+              (click)="submitComment()">
+              Add Comment
+            </button>
+          </nz-form-item>
+        </nz-comment-content>
+      </nz-comment>
     </div>
+  </div>
 </div>

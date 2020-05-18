@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-forum',
@@ -8,26 +9,35 @@ import { Router } from '@angular/router'
 })
 export class ForumComponent implements OnInit {
   
-  data = [
-    {
-      forumid :1,
-      content : 'Racing car sprays burning fuel into crowd.',
-    },
-    {
-      forumid :2,
-      content : 'Japanese princess to wed commoner.',
-    }
-  ];
+  forumList:any;
 
   constructor(
     private Router: Router,
+    private HttpClient: HttpClient,
   ) { }
 
   ngOnInit() {
+    if (window.localStorage.getItem('user_name') == null) {
+      this.Router.navigate(['/home']);
+    }
+    this.showForumList();
+  }
+
+  showForumList(){
+    this.HttpClient.get('http://localhost:8080/forum/list')
+      .toPromise().then(data => {
+        this.forumList = data;
+        console.log(this.forumList);
+      }).catch(err => {
+        console.log(err)
+      })
   }
 
   onBack(){
     this.Router.navigate(['/home']);
   }
 
+  gotoNewForumPage(){
+    this.Router.navigate(['/home/newforum']);
+  }
 }
